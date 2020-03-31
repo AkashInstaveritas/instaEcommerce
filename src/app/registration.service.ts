@@ -7,13 +7,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class RegistrationService {
 
-  _url = 'http://127.0.0.1:81/api/register';
+  private baseUrl = 'http://127.0.0.1:81/api';
 
   constructor(private _http: HttpClient) { }
 
   register(userData)
   {
-    return this._http.post<any>(this._url, userData, {
+    return this._http.post<any>(`${this.baseUrl}/register`, userData, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+
+  login(userCredentials)
+  {
+    return this._http.post<any>(`${this.baseUrl}/login`, userCredentials, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })

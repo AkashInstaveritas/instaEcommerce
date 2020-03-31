@@ -21,22 +21,35 @@
 		<a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
 		<a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
 	</div>
-	<form class="register-form outer-top-xs" role="form">
-		<div class="form-group">
-		    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
-		    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
-		</div>
-	  	<div class="form-group">
-		    <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
-		    <input type="password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" >
-		</div>
+	<form class="register-form outer-top-xs" role="form" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+
+    <div class="alert alert-danger" role="alert" *ngIf="errorMsg">
+      <span style="text-align: center;">Email or password do not match! </span>
+    </div>
+
+    <div class="form-group">
+      <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+      <input type="email" formControlName="email" [class.is-invalid]="loginEmail.invalid && loginEmail.touched" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
+      <div *ngIf="loginEmail.invalid && loginEmail.touched">
+        <small class="text-danger" *ngIf="loginEmail.errors.required">Email is required</small>
+        <small class="text-danger" *ngIf="loginEmail.errors.email">Email format not correct.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
+      <input type="password" formControlName="password" [class.is-invalid]="loginPassword.invalid && loginPassword.touched" class="form-control unicase-form-control text-input" id="exampleInputPassword1">
+      <div *ngIf="loginPassword.invalid && loginPassword.touched">
+        <small class="text-danger" *ngIf="loginPassword.errors.required">Password is required</small>
+        <small class="text-danger" *ngIf="loginPassword.errors.minlength">Password length should be minimum 6.</small>
+      </div>
+  </div>
+
 		<div class="radio outer-xs">
-		  	<label>
-		    	<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Remember me!
-		  	</label>
+
 		  	<a href="#" class="forgot-password pull-right">Forgot your Password?</a>
 		</div>
-	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
+	  	<button [disabled]="!loginForm.valid" type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
 	</form>
 </div>
 <!-- Sign-in -->
