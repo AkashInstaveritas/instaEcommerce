@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './registration/registration.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ProductDetailComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
