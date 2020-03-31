@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
-import { PasswordValidator } from '../shared/password.validator';
-import { RegistrationService } from '../registration.service';
+import { PasswordValidator } from 'src/app/shared/password.validator';
+import { RegistrationService } from 'src/app/registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -58,14 +58,24 @@ export class RegistrationComponent implements OnInit {
   /**
    * Submit form data through a service to the server
    */
+  showMsg: boolean = false;
+  errMsg = [];
+
+  public error = [];
+
   onSubmit()
   {
     //console.log(this.registrationForm.value);
     this._registrationService.register(this.registrationForm.value)
         .subscribe(
-          response => console.log('Success!', response),
-          error => console.log('Error!', error),
+          response => this.showMsg= true,
+          error => this.handleError(error),
         )
+  }
+
+  handleError(error)
+  {
+    this.error = error.errors;
   }
 }
 

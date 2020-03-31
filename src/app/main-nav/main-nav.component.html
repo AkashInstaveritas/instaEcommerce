@@ -11,6 +11,7 @@
             <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
             <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
             <li><a routerLink="/logIn"><i class="icon fa fa-lock"></i>Login</a></li>
+            <li><a routerLink="/product-detail/9"><i class="icon fa fa-lock"></i>Product</a></li>
 
           </ul>
         </div>
@@ -118,6 +119,16 @@
 
   </div>
   <!-- /.main-header -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav"  *ngFor="let category of categories">
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{category.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 </header>
 

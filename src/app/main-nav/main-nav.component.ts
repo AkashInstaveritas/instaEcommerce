@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from 'src/app/categories.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainNavComponent implements OnInit {
 
-  constructor() { }
+  public categories = [];
+
+  constructor(private _catogeriesService: CategoriesService) { }
 
   ngOnInit(): void {
+    this._catogeriesService.getCategories()
+    .subscribe(data => this.categories = data);
   }
 
 }
