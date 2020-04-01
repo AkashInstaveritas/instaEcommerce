@@ -1,0 +1,76 @@
+
+<div class="breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-inner">
+			<ul class="list-inline list-unstyled">
+				<li><a href="#">Home</a></li>
+				<li class='active'>Wishlist</li>
+			</ul>
+		</div><!-- /.breadcrumb-inner -->
+	</div><!-- /.container -->
+</div><!-- /.breadcrumb -->
+
+<div class="body-content">
+	<div class="container">
+		<div class="my-wishlist-page">
+			<div class="row">
+				<div class="col-md-12 my-wishlist">
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th colspan="4" class="heading-title">My Wishlist</th>
+				</tr>
+			</thead>
+			<tbody>
+
+					<tr *ngFor="let product of wishlists.data">
+						<td class="col-md-2"><img src="./assets/dummy.jpg" alt="imga"></td>
+						<td class="col-md-7">
+							<div class="product-name"><a href="#">{{ product.name | titlecase }}</a></div>
+							<div class="rating">
+
+								<span *ngIf="product.rating != 0; else noRating" class="badge badge-success" style="font-size: 99%; color: white;">
+                   {{ product.rating }} ★
+                </span>
+                <ng-template #noRating>
+                  <span class="badge badge-success" style="color: white;">
+                    No rating yet
+                 </span>
+                </ng-template>
+
+								<!-- <span class="review">(  Reviews)</span> -->
+							</div>
+							<div class="price">
+								₹ {{ product.price }}
+								<!--<span>₹ 200000</span>-->
+							</div>
+						</td>
+						<!-- <td class="col-md-2">
+							<a href="#" class="btn-upper btn btn-primary">Add to cart</a>
+						</td> -->
+						<td class="col-md-1 close-btn">
+							<a href="#" class=""><i class="fa fa-times"></i></a>
+						</td>
+					</tr>
+
+      </tbody>
+
+      <!-- <ng-template #emptyWishlist>
+        <tbody >
+          <tr>
+            <td style="text-align: center; font-size: 40px;"> Empty Wishlist
+              <br>
+              <span style="font-size: 20px;">You have no items in your wishlist. Start adding!</span>
+            </td>
+          </tr>
+        </tbody>
+      </ng-template> -->
+
+
+
+		</table>
+	</div>
+</div>			</div><!-- /.row -->
+		</div><!-- /.sigin-in-->
+

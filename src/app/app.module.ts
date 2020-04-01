@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     MainNavComponent,
     RegistrationComponent,
     ProductDetailComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    WishlistComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

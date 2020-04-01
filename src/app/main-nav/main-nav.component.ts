@@ -3,6 +3,7 @@ import { CategoriesService } from 'src/app/categories.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from '../services/token.service';
+import { SubCategoriesService } from '../services/sub-categories.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -12,6 +13,7 @@ import { TokenService } from '../services/token.service';
 export class MainNavComponent implements OnInit {
 
   public categories = [];
+  public mainCategories = [];
   public loggedIn: boolean;
 
   constructor
@@ -19,7 +21,8 @@ export class MainNavComponent implements OnInit {
     private _catogeriesService: CategoriesService,
     private Auth: AuthService,
     private router: Router,
-    private Token: TokenService
+    private Token: TokenService,
+    private _subCategories: SubCategoriesService
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +39,14 @@ export class MainNavComponent implements OnInit {
     this.Token.remove();
     this.Auth.changeAuthStatus(false);
     this.router.navigate(['/logIn']);
+  }
+
+  getSubCategories(event: MouseEvent)
+  {
+    event.preventDefault();
+
+    this._subCategories.getSubCategories(event.target.id)
+    .subscribe(data => this.mainCategories = data);
   }
 
 }
