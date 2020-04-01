@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { PasswordValidator } from 'src/app/shared/password.validator';
 import { RegistrationService } from 'src/app/registration.service';
-import { TokenService } from '../Service/token.service';
+import { TokenService } from '../services/token.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../Service/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -109,8 +109,9 @@ export class RegistrationComponent implements OnInit {
     //console.log(this.loginForm.value);
     this._registrationService.login(this.loginForm.value)
         .subscribe(
+          //data => console.log(data),
           data => this.handleResponse(data),
-          error => console.log(error),
+          error => this.errorMsg= true,
         )
   }
 

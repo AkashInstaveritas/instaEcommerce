@@ -10,7 +10,8 @@
             <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
             <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
             <li><a routerLink="/logIn" *ngIf="!loggedIn"><i class="icon fa fa-lock"></i>Login</a></li>
-            <li><a routerLink="/profile" *ngIf="loggedIn"><i class="icon fa fa-user"></i>My Profile</a></li>
+            <li *ngIf="loggedIn"><a href="#" (click)="logout($event)" *ngIf="loggedIn"><i class="icon fa fa-user"></i>Logout</a></li>
+            <li *ngIf="loggedIn"><a routerLink="/profile" *ngIf="loggedIn"><i class="icon fa fa-user"></i>My Profile</a></li>
             <li><a routerLink="/product-detail/9"><i class="icon fa fa-lock"></i>Product</a></li>
 
           </ul>
