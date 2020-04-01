@@ -15,6 +15,9 @@
 		<div class="my-wishlist-page">
 			<div class="row">
 				<div class="col-md-12 my-wishlist">
+          <div class="alert alert-success" *ngIf="showMsg">
+            <span>Selected product removed from wishlist.</span>
+          </div>
 	<div class="table-responsive">
 		<table class="table">
 			<thead>
@@ -50,7 +53,7 @@
 							<a href="#" class="btn-upper btn btn-primary">Add to cart</a>
 						</td> -->
 						<td class="col-md-1 close-btn">
-							<a href="#" class=""><i class="fa fa-times"></i></a>
+							<a href="#" (click)="removeProduct($event, product.id)" class=""><i class="fa fa-times"></i></a>
 						</td>
 					</tr>
 

@@ -11,6 +11,7 @@
 		</div><!-- /.breadcrumb-inner -->
 	</div><!-- /.container -->
 </div><!-- /.breadcrumb -->
+
 <div class="body-content outer-top-xs">
 	<div class='container'>
 		<div class='row single-product'>
@@ -32,6 +33,7 @@
 
     </div><!-- /.single-product-gallery -->
 </div><!-- /.gallery-holder -->
+
 					<div class='col-sm-6 col-md-7 product-info-block'>
 						<div class="product-info">
 							<h1 class="name">{{ product.name }}</h1>
@@ -40,7 +42,7 @@
 								<div class="row">
 									<div class="col-sm-3" style="width: 8%;">
 
-										    <span class="label label-success" style="font-size: 99%;">{{ product.rating }} ★ </span>
+										    <span class="badge badge-success" style="font-size: 99%;">{{ product.rating }} ★ </span>
 									</div>
 									<div class="col-sm-8">
 										<div class="reviews" style="font-size: 16px;">
@@ -66,8 +68,7 @@
 									</div>
 									<div class="col-sm-9">
 										<div class="stock-box">
-											<!--<span class="value">-->
-											{{ product.quantity }}<!--</span>-->
+											<span class="badge badge-success">{{ product.quantity }} </span>
 										</div>
 									</div>
 								</div><!-- /.row -->
@@ -91,7 +92,7 @@
 									<div class="col-sm-6">
 
 											<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
-											    <i class="fa fa-heart"></i>Wishlist
+											    <i class="fa fa-heart"></i>
 											</a>
 
 
@@ -100,7 +101,30 @@
 								</div><!-- /.row -->
 							</div><!-- /.price-container -->
 
+              <div class="quantity-container info-container">
+								<div class="row">
+										<form action="#" method="POST">
 
+											<div class="col-sm-2">
+												<span class="label">Qty :</span>
+											</div>
+
+											<div class="col-sm-2">
+												<div class="cart-quantity">
+													<div class="quant-input">
+										          <input type="number" name="qty" id="qty1" value="1" min="1" max="3" required>
+									        </div>
+									      </div>
+											</div>
+
+                      <div class="col-sm-7">
+                        <input type="hidden" name="id" id="proid" value="{{ product.id }}">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
+                      </div>
+                    </form>
+
+                  </div><!-- /.row -->
+                </div><!-- /.quantity-container -->
 
 
 
