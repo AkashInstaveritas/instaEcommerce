@@ -90,10 +90,12 @@
 									</div>
 
 									<div class="col-sm-6">
-
-											<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                      <div class="aler alert-danger" [hidden]="!error.product_id">
+                        <span>{{ error.product_id }}</span>
+                      </div>
+											<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#" (click)="addProductWishlist($event, product.id)">
 											    <i class="fa fa-heart"></i>
-											</a>
+                      </a>
 
 
 									</div>

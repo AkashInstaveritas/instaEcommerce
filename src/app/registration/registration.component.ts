@@ -70,6 +70,7 @@ export class RegistrationComponent implements OnInit {
    */
   showMsg: boolean = false;
   errMsg = [];
+  public error = [];
 
 
   onSubmit()
@@ -77,16 +78,31 @@ export class RegistrationComponent implements OnInit {
     //console.log(this.registrationForm.value);
     this._registrationService.register(this.registrationForm.value)
         .subscribe(
-          response => this.showMsg= true,
-          error => console.log(error),
+          data => this.handleSignUpResponse(data),
+          error => this.handleSignUpError(error),
         )
   }
 
-  //Login Form Validation and submission
+  handleSignUpResponse(data)
+  {
+    this.Token.handle(data.token);
+    this.Auth.changeAuthStatus(true);
+    this.router.navigate(['/profile']);
+  }
+
+  handleSignUpError(error)
+  {
+    this.error = error.error.errors;
+  }
+
 
   /**
-   * Create gettters for login controls
+   *
+   * Login Form Validation and submission
    **/
+
+  // Create gettters for login controls
+
   get loginEmail()
   {
     return this.loginForm.get('email');
@@ -106,16 +122,14 @@ export class RegistrationComponent implements OnInit {
 
   onLoginSubmit()
   {
-    //console.log(this.loginForm.value);
     this._registrationService.login(this.loginForm.value)
         .subscribe(
-          //data => console.log(data),
-          data => this.handleResponse(data),
+          data => this.handleLoginResponse(data),
           error => this.errorMsg= true,
         )
   }
 
-  handleResponse(data)
+  handleLoginResponse(data)
   {
     this.Token.handle(data.token);
     this.Auth.changeAuthStatus(true);

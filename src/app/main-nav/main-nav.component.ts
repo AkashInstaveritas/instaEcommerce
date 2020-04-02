@@ -49,4 +49,11 @@ export class MainNavComponent implements OnInit {
     .subscribe(data => this.mainCategories = data);
   }
 
+  getProducts(event: MouseEvent, id)
+  {
+    event.preventDefault();
+
+    this.router.navigate(['/products/' + id]);
+  }
+
 }

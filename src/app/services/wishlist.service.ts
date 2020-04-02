@@ -22,6 +22,16 @@ export class WishlistService {
     });
   }
 
+  addProductToWishlist(id): Observable<any>
+  {
+    return this._http.post<any>(`${this.baseUrl}/wishlist/products`, { product_id: id }, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.Token.get()}`,
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+
   removeProductFromWishlist(id): Observable<any>
   {
     return this._http.delete<any>(`${this.baseUrl}/wishlist/product/` + id, {

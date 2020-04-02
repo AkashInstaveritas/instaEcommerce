@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WishlistService } from 'src/app/services/wishlist.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 
 @Component({
@@ -9,7 +10,11 @@ import { WishlistService } from 'src/app/services/wishlist.service';
 })
 export class WishlistComponent implements OnInit {
 
-  constructor(private _wishlist: WishlistService) { }
+  constructor
+  (
+    private _wishlist: WishlistService,
+    private notification: NotificationService
+  ) { }
 
   public wishlists = [];
   showMsg: boolean = false;
@@ -31,7 +36,7 @@ export class WishlistComponent implements OnInit {
 
     this._wishlist.removeProductFromWishlist(id)
     .subscribe(data => {
-      this.showMsg= true,
+      this.notification.showSuccess('Product removed from wishlist!', 'Success!'),
       this.getWishlist()
     });
   }
