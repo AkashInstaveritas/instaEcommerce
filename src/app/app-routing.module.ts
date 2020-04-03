@@ -13,10 +13,10 @@ import { AfterLoginService } from './services/after-login.service';
 const routes: Routes = [
   {path: 'logIn', component: RegistrationComponent, canActivate: [BeforeLoginService]},
   {path: 'product-detail/:id', component: ProductDetailComponent},
-  {path: 'profile', component: UserProfileComponent, canActivate: [AfterLoginService]},
   {path: 'wishlist', component: WishlistComponent, canActivate: [AfterLoginService]},
   {path: 'cart', component: CartComponent, canActivate: [AfterLoginService]},
-  {path: 'products/:id', component: ProductDisplayComponent}
+  {path: 'products/:id', component: ProductDisplayComponent},
+  {path: 'my-profile', component: UserProfileComponent, canActivate: [AfterLoginService]},
 ];
 
 @NgModule({
