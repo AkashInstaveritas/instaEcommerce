@@ -1,104 +1,71 @@
 <div class="container">
-  <div class="col-xs-12 col-md-6">
+  <div class="row">
+    <div class="col-xs-12 col-md-6" *ngFor="let product of products.data.products">
 
-                  <!-- First product box start here-->
-                  <div class="prod-info-main prod-wrap clearfix">
+      <!-- First product box start here-->
+      <div class="prod-info-main prod-wrap clearfix">
 
-                        <div class="row">
+        <div class="row">
+          <div class="col-md-5 col-sm-12 col-xs-12">
+            <div class="product-image">
+              <img src="./assets/dummy.jpg" class="img-responsive">
+                  <span class="tag2 hot">SPECIAL</span>
+            </div>
+          </div>
 
-                             <div class="col-md-5 col-sm-12 col-xs-12">
+        <div class="col-md-7 col-sm-12 col-xs-12">
+          <div class="product-deatil">
 
-                              <div class="product-image">
+            <h5 class="name">
+              <a href="#">{{ product.name | titlecase }}</a>
+            </h5>
 
-                               <img src="./assets/dummy.jpg" class="img-responsive">
+            <p class="price-container">
+              <span>{{ product.price }}</span>
+            </p>
+            <span class="tag1"></span>
+          </div>
 
-                                 <span class="tag2 hot">
+          <div class="description">
+              <p>{{ product.detail }} </p>
+          </div>
 
-                                   SPECIAL
+          <div class="product-info smart-form">
+            <div class="row">
+              <div class="col-md-12">
+                <a href="#" class="btn btn-danger">Add to cart</a>
+                <a routerLink="/product-detail/{{product.id}}" class="btn btn-info">More info</a>
+              </div>
 
-                                 </span>
+          <div class="col-md-12">
 
-                         </div>
+            <div class="rating">Rating:
 
-                    </div>
+              <span *ngIf="product.rating != 0; else noRating" class="badge badge-success" style="color: white;">
+                {{ product.rating }} ★
+              </span>
+              <ng-template #noRating>
+                <span class="badge badge-success" style="color: white;">
+                  No rating yet
+                </span>
+              </ng-template>
 
-       <div class="col-md-7 col-sm-12 col-xs-12">
+            </div>
 
-                    <div class="product-deatil">
+          </div>
 
-                                 <h5 class="name">
+          </div>
 
-                                 <a href="#">
-
-                                  Product Code/Name here
-
-                                 </a>
-
-                                 <a href="#">
-
-                                 <span>Product Category</span>
-
-                                 </a>
-
-                          </h5>
-
-                              <p class="price-container">
-
-                               <span>$199</span>
-
-                             </p>
-
-                <span class="tag1"></span>
-
-     </div>
-
-     <div class="description">
-
-        <p>A Short product description here </p>
-
-     </div>
-
-        <div class="product-info smart-form">
-
-           <div class="row">
-
-           <div class="col-md-12">
-
-            <a href="#" class="btn btn-danger">Add to cart</a>
-
-               <a href="javascript:void(0);" class="btn btn-info">More info</a>
-
-         </div>
-
-        <div class="col-md-12">
-
-           <div class="rating">Rating:
-
-            <label for="stars-rating-5"><i class="fa fa-star text-danger"></i></label>
-
-            <label for="stars-rating-4"><i class="fa fa-star text-danger"></i></label>
-
-            <label for="stars-rating-3"><i class="fa fa-star text-danger"></i></label>
-
-            <label for="stars-rating-2"><i class="fa fa-star text-warning"></i></label>
-
-            <label for="stars-rating-1"><i class="fa fa-star text-warning"></i></label>
-
-           </div>
-
-         </div>
+       </div>
 
       </div>
 
+      </div>
      </div>
 
-    </div>
+     <!-- end product -->
 
     </div>
-   </div>
-
-   <!-- end product -->
-
   </div>
-  </div>
+</div>
 

@@ -10,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductDisplayComponent implements OnInit {
 
   public subCategoryId;
+  public products = [];
 
   constructor
   (
@@ -31,7 +32,7 @@ export class ProductDisplayComponent implements OnInit {
   getProducts()
   {
     this.productsService.getProductFromSubCategory(this.subCategoryId)
-    .subscribe(data => console.log(data));
+    .subscribe(data => this.products = data);
   }
 
 }

@@ -105,22 +105,21 @@
 
               <div class="quantity-container info-container">
 								<div class="row">
-										<form action="#" method="POST">
+										<form [formGroup]="addToCartForm" (ngSubmit)="onAddToCartSubmit()">
 
 											<div class="col-sm-2">
 												<span class="label">Qty :</span>
 											</div>
-
 											<div class="col-sm-2">
 												<div class="cart-quantity">
 													<div class="quant-input">
-										          <input type="number" name="qty" id="qty1" value="1" min="1" max="3" required>
+										          <input type="number" formControlName="quantity" id="qty1">
 									        </div>
 									      </div>
-											</div>
+                      </div>
 
                       <div class="col-sm-7">
-                        <input type="hidden" name="id" id="proid" value="{{ product.id }}">
+                        <input type="hidden" formControlName="product_id" >
                         <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
                       </div>
                     </form>
@@ -151,7 +150,23 @@
 
 								<div id="description" class="tab-pane in active">
 									<div class="product-tab">
-										<p class="text">{{ product.description }}</p>
+                    <p class="text">{{ product.description }}</p>
+                    <br>
+                    <h3>Specfications</h3>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Details</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let specification of product.filterOptions">
+                          <td>{{ specification.filter }}</td>
+                          <td>{{ specification.name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
 									</div>
 								</div><!-- /.tab-pane -->
 
