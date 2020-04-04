@@ -32,7 +32,8 @@ export class ProductDisplayComponent implements OnInit {
   getProducts()
   {
     this.productsService.getProductFromSubCategory(this.subCategoryId)
-    .subscribe(data => this.products = data);
+    .subscribe(data => this.products = data)
+    // .subscribe(data => console.log(data.data.filters[0].filterOptions));
   }
 
 }

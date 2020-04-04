@@ -15,6 +15,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductDisplayComponent } from './components/product-display/product-display.component';
+import { UserAddressComponent } from './components/user-address/user-address.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProductDisplayComponent } from './components/product-display/product-di
     UserProfileComponent,
     WishlistComponent,
     CartComponent,
-    ProductDisplayComponent
+    ProductDisplayComponent,
+    UserAddressComponent
   ],
   imports: [
     BrowserModule,
