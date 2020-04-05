@@ -117,19 +117,19 @@ export class UserAddressComponent implements OnInit {
   removeAddress(event: MouseEvent, id)
   {
     event.preventDefault();
-    console.log(id);
-    // this.address.removeUserAddress(id)
-    // .subscribe(data => {
-    //   this.getAddresses(),
-    //   this.notification.showSuccess(data.message, 'Success!')
+    //console.log(id);
+    this.address.removeUserAddress(id)
+    .subscribe(data => {
+      this.getAddresses(),
+      this.notification.showSuccess(data.message, 'Success!')
 
-    // });
+    });
   }
 
 
   /**
    *
-   * Start of code for adding user address
+   * Start of code for editing user address
    *
    **/
   showeditModal : boolean = false;
@@ -142,6 +142,7 @@ export class UserAddressComponent implements OnInit {
     .subscribe(data =>
     {
       this.editAddressForm.setValue({
+        id: data.data.id,
         name: data.data.name,
         landmark: data.data.landmark,
         city: data.data.city,
@@ -191,6 +192,7 @@ export class UserAddressComponent implements OnInit {
 
 
    editAddressForm = this.fb.group({
+     id: [''],
      name: ['', [Validators.required, Validators.minLength(3)]],
      landmark: ['', [Validators.required, Validators.minLength(3)]],
      city: ['', [Validators.required, Validators.minLength(3)]],
@@ -209,8 +211,8 @@ export class UserAddressComponent implements OnInit {
 
    onUpdateSubmit()
    {
-     //console.log(this.addAddressForm.value);
-     this.address.updateUserAddress(this.addAddressForm.value)
+      console.log(this.editAddressForm.value.id);
+     this.address.updateUserAddress(this.editAddressForm.value, this.editAddressForm.value.id)
          .subscribe(
            data => this.handleUpdateAddressResponse(data),
            error => this.handleUpdateAddressError(error),
@@ -231,7 +233,7 @@ export class UserAddressComponent implements OnInit {
    }
 
    /**
-    * End of code for adding user address
+    * End of code for editing user address
     **/
 
 

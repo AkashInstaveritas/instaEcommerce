@@ -9,6 +9,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { ProductDisplayComponent } from './components/product-display/product-display.component';
 import { BeforeLoginService } from './services/before-login.service';
 import { AfterLoginService } from './services/after-login.service';
+import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent, canActivate: [AfterLoginService]},
   {path: 'products/:id', component: ProductDisplayComponent},
   {path: 'my-profile', component: UserProfileComponent, canActivate: [AfterLoginService]},
-  {path: 'my-addresses', component: UserAddressComponent, canActivate: [AfterLoginService]}
+  {path: 'my-addresses', component: UserAddressComponent, canActivate: [AfterLoginService]},
+  {path: 'request-password-reset', component: RequestResetComponent, canActivate: [BeforeLoginService]},
+  {path: 'response-password-reset', component: ResponseResetComponent, canActivate: [BeforeLoginService]},
 ];
 
 @NgModule({

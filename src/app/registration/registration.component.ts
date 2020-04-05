@@ -87,7 +87,7 @@ export class RegistrationComponent implements OnInit {
   {
     this.Token.handle(data.token);
     this.Auth.changeAuthStatus(true);
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/my-profile']);
   }
 
   handleSignUpError(error)
@@ -133,7 +133,7 @@ export class RegistrationComponent implements OnInit {
   {
     this.Token.handle(data.token);
     this.Auth.changeAuthStatus(true);
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/my-profile']);
   }
 
 

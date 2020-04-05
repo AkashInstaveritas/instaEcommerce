@@ -41,11 +41,11 @@ export class MainNavComponent implements OnInit {
     this.router.navigate(['/logIn']);
   }
 
-  getSubCategories(event: MouseEvent)
+  getSubCategories(event: MouseEvent, id)
   {
     event.preventDefault();
 
-    this._subCategories.getSubCategories(event.target.id)
+    this._subCategories.getSubCategories(id)
     .subscribe(data => this.mainCategories = data);
   }
 

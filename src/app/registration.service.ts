@@ -53,4 +53,22 @@ export class RegistrationService {
       })
     });
   }
+
+  sendPasswordResetLink(data)
+  {
+    return this._http.post<any>(`${this.baseUrl}/sendPasswordResetLink`, data, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+
+  resetPassword(data)
+  {
+    return this._http.post<any>(`${this.baseUrl}/resetPassword`, data, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
 }

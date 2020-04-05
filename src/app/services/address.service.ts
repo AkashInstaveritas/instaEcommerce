@@ -40,9 +40,9 @@ export class AddressService {
     });
   }
 
-  updateUserAddress(addressData): Observable<any>
+  updateUserAddress(addressData, id): Observable<any>
   {
-    return this._http.patch<any>(`${this.baseUrl}/address/` + addressData.id, addressData, {
+    return this._http.patch<any>(`${this.baseUrl}/address/` + id, addressData, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.Token.get()}`,
         'Content-Type': 'application/json'

@@ -124,7 +124,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav"  *ngFor="let category of categories">
         <li class="nav-item">
-          <a class="nav-link" href="#" id="{{ category.id }}" (click)="getSubCategories($event)">{{ category.name | titlecase }}</a>
+          <a class="nav-link" href="#" (click)="getSubCategories($event, category.id)">{{ category.name | titlecase }}</a>
 
         </li>
       </ul>

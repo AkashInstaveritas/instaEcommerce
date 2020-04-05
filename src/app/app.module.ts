@@ -16,6 +16,9 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductDisplayComponent } from './components/product-display/product-display.component';
 import { UserAddressComponent } from './components/user-address/user-address.component';
+import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { UserAddressComponent } from './components/user-address/user-address.com
     WishlistComponent,
     CartComponent,
     ProductDisplayComponent,
-    UserAddressComponent
+    UserAddressComponent,
+    RequestResetComponent,
+    ResponseResetComponent,
+
   ],
   imports: [
     BrowserModule,
