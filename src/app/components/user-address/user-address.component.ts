@@ -86,7 +86,7 @@ export class UserAddressComponent implements OnInit {
 
 
   errMsg = [];
-  public error = [];
+  public error: any = [];
 
 
   onSubmit()
@@ -208,7 +208,7 @@ export class UserAddressComponent implements OnInit {
 
 
 
-   public errorUpdate = [];
+   public errorUpdate: any = [];
 
 
    onUpdateSubmit()

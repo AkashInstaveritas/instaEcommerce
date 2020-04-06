@@ -71,6 +71,7 @@
           <small class="text-danger" *ngIf="name.errors.required">Name is required</small>
           <small class="text-danger" *ngIf="name.errors.minlength">Name length should be of minimum 3.</small>
         </div>
+        <small class="text-danger" [hidden]="!error.name">{{ error.name }}</small>
     </div>
 
     <div class="form-group">
@@ -80,9 +81,7 @@
         <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
         <small class="text-danger" *ngIf="email.errors.email">Email format not correct.</small>
       </div>
-      <div *ngIf="let error of error">
-        <small class="text-danger" [hidden]="!error.email">{{ error.email }}</small>
-      </div>
+      <small class="text-danger" [hidden]="!error.email">{{ error.email }}</small>
     </div>
 
         <div class="form-group">
@@ -92,9 +91,7 @@
           <small class="text-danger" *ngIf="phone.errors.required">Phone is required</small>
           <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be 10 digits.</small>
         </div>
-        <div *ngFor="let error of error">
-          <small class="text-danger" [hidden]="!error.phone">{{ error.phone }}</small>
-        </div>
+        <small class="text-danger" [hidden]="!error.phone">{{ error.phone }}</small>
 		</div>
         <div class="form-group">
 		    <label class="info-title" for="exampleInputEmail1">Password <span>*</span></label>
@@ -103,9 +100,7 @@
           <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
           <small class="text-danger" *ngIf="password.errors.minlength">Password length should be minimum 6.</small>
         </div>
-        <div *ngFor="let error of error">
-          <small class="text-danger" [hidden]="!error.password">{{ error.password }}</small>
-        </div>
+        <small class="text-danger" [hidden]="!error.password">{{ error.password }}</small>
 		</div>
          <div class="form-group">
 		    <label class="info-title" for="exampleInputEmail1">Confirm Password <span>*</span></label>

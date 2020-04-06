@@ -70,7 +70,7 @@ export class RegistrationComponent implements OnInit {
    */
   showMsg: boolean = false;
   errMsg = [];
-  public error = [];
+  public error: any = [];
 
 
   onSubmit()

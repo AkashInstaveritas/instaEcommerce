@@ -87,9 +87,7 @@
                 <small class="text-danger" *ngIf="name.errors.required">Street address is required</small>
                 <small class="text-danger" *ngIf="name.errors.minlength">Street address length should be of minimum 3.</small>
               </div>
-              <div *ngFor="let error of error">
                 <small class="text-danger" [hidden]="!error.name">{{ error.name }}</small>
-              </div>
           </div>
 
           <div class="form-group">
@@ -99,9 +97,7 @@
               <small class="text-danger" *ngIf="landmark.errors.required">Landmark is required</small>
               <small class="text-danger" *ngIf="landmark.errors.minlength">Landmark length should be of minimum 3.</small>
             </div>
-            <div *ngFor="let error of error">
               <small class="text-danger" [hidden]="!error.landmark">{{ error.landmark }}</small>
-            </div>
           </div>
 
           <div class="form-group">
@@ -111,9 +107,7 @@
               <small class="text-danger" *ngIf="city.errors.required">City is required</small>
               <small class="text-danger" *ngIf="city.errors.minlength">City length should be of minimum 3.</small>
             </div>
-            <div *ngFor="let error of error">
               <small class="text-danger" [hidden]="!error.city">{{ error.city }}</small>
-            </div>
           </div>
 
           <div class="form-group">
@@ -123,9 +117,7 @@
               <small class="text-danger" *ngIf="pincode.errors.required">Pincode is required</small>
               <small class="text-danger" *ngIf="pincode.errors.minlength">Pincode length should be of minimum 6.</small>
             </div>
-            <div *ngFor="let error of error">
               <small class="text-danger" [hidden]="!error.pincode">{{ error.pincode }}</small>
-            </div>
           </div>
 
           <div class="form-group">
@@ -135,9 +127,7 @@
               <small class="text-danger" *ngIf="state.errors.required">State is required</small>
               <small class="text-danger" *ngIf="state.errors.minlength">State length should be of minimum 3.</small>
             </div>
-            <div *ngFor="let error of error">
               <small class="text-danger" [hidden]="!error.state">{{ error.state }}</small>
-            </div>
           </div>
 
           <div class="form-group">
@@ -147,9 +137,7 @@
               <small class="text-danger" *ngIf="country.errors.required">Country is required</small>
               <small class="text-danger" *ngIf="country.errors.minlength">Country length should be of minimum 3.</small>
             </div>
-            <div *ngFor="let error of error">
               <small class="text-danger" [hidden]="!error.country">{{ error.country }}</small>
-            </div>
           </div>
             <button type="submit" [disabled]="!addAddressForm.valid" class="btn-upper btn btn-primary checkout-page-button">Submit</button>
         </form>
@@ -186,9 +174,7 @@
                 <small class="text-danger" *ngIf="editName.errors.required">Street address is required</small>
                 <small class="text-danger" *ngIf="editName.errors.minlength">Street address length should be of minimum 3.</small>
               </div>
-              <div *ngFor="let errorUpdate of errorUpdate">
-                <small class="text-danger" [hidden]="!errorUpdate.name">{{ errorUpdate.name }}</small>
-              </div>
+              <small class="text-danger" [hidden]="!errorUpdate.name">{{ errorUpdate.name }}</small>
           </div>
 
           <div class="form-group">
@@ -198,9 +184,7 @@
               <small class="text-danger" *ngIf="editLandmark.errors.required">Landmark is required</small>
               <small class="text-danger" *ngIf="editLandmark.errors.minlength">Landmark length should be of minimum 3.</small>
             </div>
-            <div *ngFor="let errorUpdate of errorUpdate">
-              <small class="text-danger" [hidden]="!errorUpdate.landmark">{{ errorUpdate.landmark }}</small>
-            </div>
+            <small class="text-danger" [hidden]="!errorUpdate.landmark">{{ errorUpdate.landmark }}</small>
           </div>
 
           <div class="form-group">
@@ -210,9 +194,7 @@
               <small class="text-danger" *ngIf="editCity.errors.required">City is required</small>
               <small class="text-danger" *ngIf="editCity.errors.minlength">City length should be of minimum 3.</small>
             </div>
-            <div *ngFor="let errorUpdate of errorUpdate">
-              <small class="text-danger" [hidden]="!errorUpdate.city">{{ errorUpdate.city }}</small>
-            </div>
+            <small class="text-danger" [hidden]="!errorUpdate.city">{{ errorUpdate.city }}</small>
           </div>
 
           <div class="form-group">
@@ -222,9 +204,7 @@
               <small class="text-danger" *ngIf="editPincode.errors.required">Pincode is required</small>
               <small class="text-danger" *ngIf="editPincode.errors.minlength">Pincode length should be of minimum 6.</small>
             </div>
-            <div *ngFor="let errorUpdate of errorUpdate">
-              <small class="text-danger" [hidden]="!errorUpdate.pincode">{{ errorUpdate.pincode }}</small>
-            </div>
+            <small class="text-danger" [hidden]="!errorUpdate.pincode">{{ errorUpdate.pincode }}</small>
           </div>
 
           <div class="form-group">
@@ -234,9 +214,7 @@
               <small class="text-danger" *ngIf="editState.errors.required">State is required</small>
               <small class="text-danger" *ngIf="editState.errors.minlength">State length should be of minimum 3.</small>
             </div>
-            <div *ngFor="let errorUpdate of errorUpdate">
-              <small class="text-danger" [hidden]="!errorUpdate.state">{{ errorUpdate.state }}</small>
-            </div>
+            <small class="text-danger" [hidden]="!errorUpdate.state">{{ errorUpdate.state }}</small>
           </div>
 
           <div class="form-group">
@@ -246,9 +224,7 @@
               <small class="text-danger" *ngIf="editCountry.errors.required">Country is required</small>
               <small class="text-danger" *ngIf="editCountry.errors.minlength">Country length should be of minimum 3.</small>
             </div>
-            <div *ngFor="let errorUpdate of errorUpdate">
-              <small class="text-danger" [hidden]="!errorUpdate.country">{{ errorUpdate.country }}</small>
-            </div>
+            <small class="text-danger" [hidden]="!errorUpdate.country">{{ errorUpdate.country }}</small>
           </div>
             <button type="submit" [disabled]="!editAddressForm.valid" class="btn-upper btn btn-primary checkout-page-button">Update</button>
         </form>

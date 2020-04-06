@@ -10,8 +10,8 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  public userData = [];
-  public error = [];
+  public userData: any = [];
+  public error: any = [];
 
   constructor
   (
