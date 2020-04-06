@@ -12,6 +12,7 @@ import { AfterLoginService } from './services/after-login.service';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { OrderComponent } from './components/order/order.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'wishlist', component: WishlistComponent, canActivate: [AfterLoginService]},
   {path: 'cart', component: CartComponent, canActivate: [AfterLoginService]},
   {path: 'checkout', component: CheckoutComponent , canActivate: [AfterLoginService]},
+  {path: 'orders', component: OrderComponent , canActivate: [AfterLoginService]},
   {path: 'products/:id', component: ProductDisplayComponent},
   {path: 'my-profile', component: UserProfileComponent, canActivate: [AfterLoginService]},
   {path: 'my-addresses', component: UserAddressComponent, canActivate: [AfterLoginService]},

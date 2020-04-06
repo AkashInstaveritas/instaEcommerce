@@ -1,0 +1,74 @@
+<div class="breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-inner">
+			<ul class="list-inline list-unstyled">
+				<li><a href="#">Home</a></li>
+				<li class='active'>Orders</li>
+			</ul>
+		</div><!-- /.breadcrumb-inner -->
+	</div><!-- /.container -->
+</div><!-- /.breadcrumb -->
+
+<div class="body-content">
+	<div class="container">
+		<div class="my-wishlist-page">
+			<div class="row">
+				<div class="col-md-12 my-wishlist">
+
+          <div *ngFor="let order of orders.data">
+            <div style="background-color:#ebebe0; padding: 12px 10px 12px 10px; ">
+              <span style="display: inline-block; width: 50%">
+                <a href="#" class="btn btn-upper btn-primary outer-left-xs">Order Total - {{ order.total | currency: 'INR' }}</a>
+              </span>
+              <span style="font-size: 15px; float: right;">
+                 <a href="#" class="btn btn-info btn-md" role="button">Cancel Order</a>
+              </span>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr *ngFor="let product of order.products">
+                    <td class="col-md-2">
+                      <a class="entry-thumbnail" routerLink="/product-detail/{{product.id}}">
+                          <img src="./assets/dummy.jpg" width="100" height="100">
+                      </a>
+                    </td>
+                    <td class="col-md-3">
+                      <div class="product-name"><a href="#">{{ product.name | titlecase }}</a></div>
+                      <div class="rating">
+
+                        <span *ngIf="product.rating != 0; else noRating" class="badge badge-success" style="font-size: 99%; color: white;">
+                          {{ product.rating }} ★
+                        </span>
+                        <ng-template #noRating>
+                          <span class="badge badge-success" style="color: white;">
+                            No rating yet
+                        </span>
+                        </ng-template>
+
+                        <!-- <span class="review">(  Reviews)</span> -->
+                      </div>
+                      <div class="price">
+                         {{ product.price | currency: 'INR' }}
+                        <!--<span>₹ 200000</span>-->
+                      </div>
+                    </td>
+                    <td class="col-md-3">
+                      {{ product.detail }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          <div>
+
+
+
+        </div>
+        </div><!-- /.row -->
+    </div><!-- /.my-wishlist-page-->
+  </div><!--Container-->
+</div><!--Body-Content-->
+
+

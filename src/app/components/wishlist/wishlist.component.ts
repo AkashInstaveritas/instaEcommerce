@@ -16,7 +16,7 @@ export class WishlistComponent implements OnInit {
     private notification: NotificationService
   ) { }
 
-  public wishlists = [];
+  public wishlists: any = [];
   showMsg: boolean = false;
 
 

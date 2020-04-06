@@ -20,10 +20,6 @@
 
           <form class="register-form outer-top-xs" role="form" [formGroup]="requestResetForm" (ngSubmit)="onSubmit()">
 
-            <div class="alert alert-danger" role="alert" *ngIf="errorMsg">
-              <span style="text-align: center;">Email or password do not match! </span>
-            </div>
-
             <div class="form-group">
               <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
               <input type="email" formControlName="email" [class.is-invalid]="email.invalid && email.touched" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >

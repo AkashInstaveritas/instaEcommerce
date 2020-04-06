@@ -39,7 +39,7 @@ export class RequestResetComponent implements OnInit {
    * Submit form data through a service to the server
    */
 
-  public error = [];
+  public error: any = [];
 
 
   onSubmit()

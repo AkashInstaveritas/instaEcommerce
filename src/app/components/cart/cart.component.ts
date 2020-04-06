@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
     private notification: NotificationService
   ) { }
 
-  public carts = [];
+  public carts: any = [];
 
   ngOnInit(): void {
     this.getCart();

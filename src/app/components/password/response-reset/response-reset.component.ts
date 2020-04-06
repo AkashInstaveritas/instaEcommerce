@@ -67,7 +67,7 @@ export class ResponseResetComponent implements OnInit {
   /**
    * Submit form data through a service to the server
    */
-  public error = [];
+  public error: any = [];
 
 
   onSubmit()

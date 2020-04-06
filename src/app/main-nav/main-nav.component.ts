@@ -12,8 +12,8 @@ import { SubCategoriesService } from '../services/sub-categories.service';
 })
 export class MainNavComponent implements OnInit {
 
-  public categories = [];
-  public mainCategories = [];
+  public categories: any = [];
+  public mainCategories: any = [];
   public loggedIn: boolean;
 
   constructor

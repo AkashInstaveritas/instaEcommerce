@@ -20,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
   public loggedIn: boolean;
   public showMssg: boolean;
   public errorMssg: boolean;
-  public error = [];
+  public error: any = [];
 
   constructor
   (

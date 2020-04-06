@@ -14,8 +14,8 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class CheckoutComponent implements OnInit {
 
-  public addresses = [];
-  public carts = [];
+  public addresses: any = [];
+  public carts: any = [];
 
   constructor
   (

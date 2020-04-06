@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductDisplayComponent implements OnInit {
 
   public subCategoryId;
-  public products = [];
+  public products: any = [];
 
   constructor
   (
