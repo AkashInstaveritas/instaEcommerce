@@ -90,7 +90,7 @@
 									</div>
 
 									<div class="col-sm-6">
-                      <div class="aler alert-danger" [hidden]="!error.product_id">
+                      <div class="aler alert-danger" *ngFor="let error of error">
                         <span>{{ error.product_id }}</span>
                       </div>
 											<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#" (click)="addProductWishlist($event, product.id)">

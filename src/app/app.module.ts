@@ -18,6 +18,7 @@ import { ProductDisplayComponent } from './components/product-display/product-di
 import { UserAddressComponent } from './components/user-address/user-address.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ResponseResetComponent } from './components/password/response-reset/res
     UserAddressComponent,
     RequestResetComponent,
     ResponseResetComponent,
+    CheckoutComponent,
 
   ],
   imports: [

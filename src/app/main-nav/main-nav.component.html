@@ -13,6 +13,7 @@
             <li *ngIf="loggedIn"><a href="#" (click)="logout($event)" *ngIf="loggedIn"><i class="icon fa fa-user"></i>Logout</a></li>
             <li *ngIf="loggedIn"><a routerLink="/my-profile" *ngIf="loggedIn"><i class="icon fa fa-user"></i>My Profile</a></li>
             <li *ngIf="loggedIn"><a routerLink="/my-addresses" *ngIf="loggedIn"><i class="icon fa fa-user"></i>My Addresses</a></li>
+            <li *ngIf="loggedIn"><a routerLink="/checkout" *ngIf="loggedIn"><i class="icon fa fa-user"></i>Checkout</a></li>
           </ul>
         </div>
         <!-- /.cnt-account -->

@@ -10,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class UserAddressComponent implements OnInit {
 
-  public addresses = [];
+  public addresses: any = [];
 
   constructor
   (
@@ -27,6 +27,7 @@ export class UserAddressComponent implements OnInit {
   {
     this.address.getUserAddresses()
         .subscribe(data => this.addresses = data);
+
   }
 
 
@@ -35,6 +36,7 @@ export class UserAddressComponent implements OnInit {
    * Start of code for adding user address
    *
    **/
+  showModal : boolean = false;
 
    // Create gettters for registation controls
   get name()

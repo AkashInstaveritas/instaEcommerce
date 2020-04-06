@@ -1,0 +1,180 @@
+<div class="breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-inner">
+			<ul class="list-inline list-unstyled">
+				<li><a href="#">Home</a></li>
+				<li class='active'>Checkout</li>
+			</ul>
+		</div><!-- /.breadcrumb-inner -->
+	</div><!-- /.container -->
+</div><!-- /.breadcrumb -->
+
+<div class="body-content">
+	<div class="container">
+		<div class="checkout-box ">
+			<div class="row">
+
+				<div class="col-md-8">
+					<div class="panel-group checkout-steps" id="accordion">
+						<!-- checkout-step-01  -->
+            <div class="panel panel-default checkout-step-01">
+
+              <!-- panel-heading -->
+                <div class="panel-heading">
+                  <h4 class="unicase-checkout-title">
+                      <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#">
+                        <span>1</span>Checkout Method
+                      </a>
+                  </h4>
+                </div>
+                <!-- panel-heading -->
+
+              <div id="collapseOne">
+
+                <!-- panel-body  -->
+                  <div class="panel-body">
+                  <div class="row">
+
+                    <!-- guest-login -->
+                    <div class="col-md-6 col-sm-6 guest-login">
+
+
+                      <h4 class="checkout-subtitle outer-top-vs">Logout & LogIn to other account.</h4>
+                      <!-- <p class="text title-tag-line ">Register with us for future convenience:</p> -->
+
+                      <a href="#" (click)="logout($event)" class="btn-upper btn btn-primary checkout-page-button checkout-continue ">Logout</a>
+                    </div>
+                    <!-- guest-login -->
+
+                    <!-- already-registered-login -->
+                    <div class="col-md-6 col-sm-6 already-registered-login">
+                      <h6 class="checkout-subtitle" style="opacity: 0.5;">Advantages of our secure login</h6>
+                      <br>
+                      <h4 class="checkout-subtitle">* Easily Track Orders, Hassle free Returns</h4>
+                      <br>
+                      <h4 class="checkout-subtitle">* Get Relevant Alerts and Recommendation</h4>
+                      <br>
+                      <h4 class="checkout-subtitle">* Wishlist, Review, Ratings and more</h4>
+                    </div>
+                    <!-- already-registered-login -->
+
+                  </div>
+                </div>
+                <!-- panel-body  -->
+
+              </div><!-- row -->
+            </div>
+            <!-- checkout-step-01  -->
+
+            <!-- checkout-step-02  -->
+            <div class="panel panel-default checkout-step-02">
+              <div class="panel-heading">
+                <h4 class="unicase-checkout-title">
+                  <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#">
+                    <span>2</span>Order Summary
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseTwo" >
+                <div class="panel-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <tbody>
+                        <tr *ngFor="let product of carts.data">
+                          <td class="cart-image">
+                            <a class="entry-thumbnail" routerLink="/product-detail/{{product.id}}">
+                                <img src="./assets/dummy.jpg" width="100" height="100">
+                            </a>
+                          </td>
+                          <td class="cart-product-name-info">
+                            <h4 class='cart-product-description'>{{ product.name| titlecase }}</h4>
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <div class="rating rateit-small">
+                                  <span class="cart-sub-total-price">₹ {{ product.price }}</span>
+                                </div>
+                                <a href="#" (click)="removeProduct($event, product.id)" title="cancel" class="icon">Remove</a>
+                              </div>
+                            </div><!-- /.row -->
+                          </td>
+                          <td class="cart-product-quantity">
+                            <div class="quant-input">
+                                  <div class="arrows">
+                                    <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
+                                    <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+                                  </div>
+                                  <input type="text" (input)="changeQuantity($event.target.value, product.id)" value="{{ product.quantity }}">
+                              </div>
+                          </td>
+                        </tr>
+                      </tbody><!-- /tbody -->
+                    </table><!-- /table -->
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- checkout-step-02  -->
+
+						<!-- checkout-step-03  -->
+            <div class="panel panel-default checkout-step-03">
+              <div class="panel-heading">
+                <h4 class="unicase-checkout-title">
+                  <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#">
+                    <span>3</span>Delivery Address
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseThree">
+                <div class="panel-body">
+                   <!-- radio-form  -->
+                   <form class="register-form" role="form" #checkOutForm="ngForm" (ngSubmit)="onOrderSubmit(checkOutForm.value)">
+                    <div class="mb-3" *ngFor="let address of addresses.data">
+                      <div class="radio radio-checkout-unicase">
+                        <input type="radio" required name="address_id" value="{{ address.id }}" ngModel>
+                        <label class="radio-button guest-check" for="guest">{{ address.name }}, {{ address.landmark }}, {{ address.city}},
+                          {{ address.state }} - {{ address.pincode }} </label>
+                          <br>
+                      </div>
+                     </div>
+
+                    <br>
+                    <button type="submit" [disabled]="checkOutForm.form.invalid" class="btn btn-primary">Place Order</button>
+                  </form>
+                  <!-- radio-form  -->
+                </div>
+              </div>
+            </div>
+            <!-- checkout-step-03  -->
+
+
+
+					</div><!-- /.checkout-steps -->
+        </div>
+
+				<div class="col-md-4">
+					<!-- checkout-progress-sidebar -->
+          <div class="checkout-progress-sidebar ">
+            <div class="panel-group">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="unicase-checkout-title">Your Checkout Progress</h4>
+                  </div>
+                  <div class="">
+                  <ul class="nav nav-checkout-progress list-unstyled">
+                    <li><a href="#">Billing Address</a></li>
+                    <li><a href="#">Shipping Address</a></li>
+                    <li><a href="#">Shipping Method</a></li>
+                    <li><a href="#">Payment Method</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- checkout-progress-sidebar -->
+        </div>
+
+			</div><!-- /.row -->
+		</div><!-- /.checkout-box -->
+	</div><!-- /.container -->
+</div><!-- /.body-content -->
