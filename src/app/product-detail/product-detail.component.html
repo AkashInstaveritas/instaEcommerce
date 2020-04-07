@@ -15,122 +15,105 @@
 <div class="body-content outer-top-xs">
 	<div class='container'>
 		<div class='row single-product'>
-
 			<div class='col-md-12'>
-            <div class="detail-block">
-				<div class="row  wow fadeInUp">
+				<div class="detail-block">
+					<div class="row  wow fadeInUp">
 
-					     <div class="col-xs-12 col-sm-6 col-md-5 gallery-holder">
-    <div class="product-item-holder size-big single-product-gallery small-gallery">
+						<div class="col-xs-12 col-sm-6 col-md-5 gallery-holder">
+							<div class="product-item-holder size-big single-product-gallery small-gallery">
 
-        <div id="owl-single-product">
-            <div class="single-product-gallery-item" id="slide1">
-                <a data-lightbox="image-1" data-title="Gallery" href="#">
-                    <img src="./assets/dummy.jpg" class="img-responsive" alt="Product Image"  data-echo="./assets/logo.png"/>
-                </a>
-            </div><!-- /.single-product-gallery-item -->
-        </div><!-- /.single-product-slider -->
+								<div id="owl-single-product">
+									<div class="single-product-gallery-item" id="slide1">
+										<a data-lightbox="image-1" data-title="Gallery" href="#">
+											<img src="./assets/dummy.jpg" class="img-responsive" alt="Product Image"  data-echo="./assets/logo.png"/>
+										</a>
+									</div><!-- /.single-product-gallery-item -->
+								</div><!-- /.single-product-slider -->
 
-    </div><!-- /.single-product-gallery -->
-</div><!-- /.gallery-holder -->
+							</div><!-- /.single-product-gallery -->
+						</div><!-- /.gallery-holder -->
 
-					<div class='col-sm-6 col-md-7 product-info-block'>
-						<div class="product-info">
-							<h1 class="name">{{ product.name }}</h1>
-
-							<div class="rating-reviews m-t-20">
-								<div class="row">
-									<div class="col-sm-3" style="width: 8%;">
-
-										    <span class="badge badge-success" style="font-size: 99%;">{{ product.rating }} ★ </span>
-									</div>
-									<div class="col-sm-8">
-										<div class="reviews" style="font-size: 16px;">
-											<!-- @if($reviews->count() == 1)
-											    <a href="#" class="lnk"> & {{ $reviews->count() }} Review</a>
-											@elseif($reviews->count() > 1)
-											    <a href="#" class="lnk"> & {{ $reviews->count() }} Reviews</a>
-											@else
-											     <a href="#" class="lnk"> & No reviews yet</a>
-											@endif -->
+						<div class='col-sm-6 col-md-7 product-info-block'>
+							<div class="product-info">
+								<h1 class="name">{{ product.name }}</h1>
+								<div class="rating-reviews m-t-20">
+									<div class="row">
+										<div class="col-sm-3" style="width: 8%;">
+											<span class="badge badge-success" style="font-size: 99%;">{{ product.rating }} ★ </span>
 										</div>
-
-									</div>
-								</div><!-- /.row -->
-							</div><!-- /.rating-reviews -->
-
-							<div class="stock-container info-container m-t-10">
-								<div class="row">
-									<div class="col-sm-2">
-										<div class="stock-box">
-											<span class="label">Availability :</span>
+										<div class="col-sm-8">
+											<div class="reviews" style="font-size: 16px;">
+												<!-- @if($reviews->count() == 1)
+													<a href="#" class="lnk"> & {{ $reviews->count() }} Review</a>
+												@elseif($reviews->count() > 1)
+													<a href="#" class="lnk"> & {{ $reviews->count() }} Reviews</a>
+												@else
+													<a href="#" class="lnk"> & No reviews yet</a>
+												@endif -->
+											</div>
 										</div>
-									</div>
-									<div class="col-sm-9">
-										<div class="stock-box">
-											<span class="badge badge-success">{{ product.quantity }} </span>
+									</div><!-- /.row -->
+								</div><!-- /.rating-reviews -->
+
+								<div class="stock-container info-container m-t-10">
+									<div class="row">
+										<div class="col-sm-2">
+											<div class="stock-box">
+												<span class="label">Availability :</span>
+											</div>
 										</div>
-									</div>
-								</div><!-- /.row -->
-							</div><!-- /.stock-container -->
-
-							<div class="description-container m-t-20">
-								{{ product.detail }}
-							</div><!-- /.description-container -->
-
-							<div class="price-container info-container m-t-20">
-								<div class="row">
-
-
-									<div class="col-sm-6">
-										<div class="price-box">
-											<span class="price">₹ {{ product.price }}</span>
-											<!--<span class="price-strike">₹{{ number_format(300000, 2) }}</span>-->
+										<div class="col-sm-9">
+											<div class="stock-box">
+												<span class="badge badge-success">{{ product.quantity }} </span>
+											</div>
 										</div>
-									</div>
+									</div><!-- /.row -->
+								</div><!-- /.stock-container -->
 
-									<div class="col-sm-6">
+								<div class="description-container m-t-20">
+									{{ product.detail }}
+								</div><!-- /.description-container -->
+
+								<div class="price-container info-container m-t-20">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="price-box">
+												<span class="price">₹ {{ product.price }}</span>
+												<!--<span class="price-strike">₹{{ number_format(300000, 2) }}</span>-->
+											</div>
+										</div>
+										<div class="col-sm-6">
 											<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#" (click)="addProductWishlist($event, product.id)">
-											    <i class="fa fa-heart"></i>
-                      </a>
+											<i class="fa fa-heart"></i></a>
+										</div>
+									</div><!-- /.row -->
+								</div><!-- /.price-container -->
 
-
-									</div>
-
-								</div><!-- /.row -->
-							</div><!-- /.price-container -->
-
-              <div class="quantity-container info-container">
-								<div class="row">
+								<div class="quantity-container info-container">
+									<div class="row">
 										<form [formGroup]="addToCartForm" (ngSubmit)="onAddToCartSubmit()">
-
 											<div class="col-sm-2">
 												<span class="label">Qty :</span>
 											</div>
 											<div class="col-sm-2">
 												<div class="cart-quantity">
 													<div class="quant-input">
-										          <input type="number" formControlName="quantity" id="qty1">
-									        </div>
-									      </div>
-                      </div>
+														<input type="number" formControlName="quantity" id="qty1">
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-7">
+												<input type="hidden" formControlName="product_id" >
+												<button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
+											</div>
+										</form>
+									</div><!-- /.row -->
+								</div><!-- /.quantity-container -->
+							</div><!-- /.product-info -->
+						</div><!-- /.col-sm-7 -->
 
-                      <div class="col-sm-7">
-                        <input type="hidden" formControlName="product_id" >
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
-                      </div>
-                    </form>
-
-                  </div><!-- /.row -->
-                </div><!-- /.quantity-container -->
-
-
-
-
-						</div><!-- /.product-info -->
-					</div><!-- /.col-sm-7 -->
-				</div><!-- /.row -->
-                </div>
+					</div><!-- /.row wow fadeInUp -->
+				</div><!--Detail-Block-->
 
 				<div class="product-tabs inner-bottom-xs  wow fadeInUp">
 					<div class="row">
@@ -142,53 +125,54 @@
 							</ul><!-- /.nav-tabs #product-tabs -->
 						</div>
 						<div class="col-sm-9">
-
 							<div class="tab-content">
-
 								<div id="description" class="tab-pane in active">
 									<div class="product-tab">
-                    <p class="text">{{ product.description }}</p>
-                    <br>
-                    <h3>Specfications</h3>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>Name</th>
-                          <th>Details</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let specification of product.filterOptions">
-                          <td>{{ specification.filter }}</td>
-                          <td>{{ specification.name }}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-									</div>
+										<p class="text">{{ product.description }}</p>
+										<br>
+										<h3>Specfications</h3>
+										<table class="table">
+										<thead>
+											<tr>
+											<th>Name</th>
+											<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor="let specification of product.filterOptions">
+											<td>{{ specification.filter }}</td>
+											<td>{{ specification.name }}</td>
+											</tr>
+										</tbody>
+										</table>
+									</div><!--Product-tab-->
 								</div><!-- /.tab-pane -->
 
 								<div id="review" class="tab-pane">
 									<div class="product-tab">
-
 										<div class="product-reviews">
 											<h4 class="title">Customer Reviews</h4>
-
-											<div class="reviews">
-												<div class="review">
-
-
-												    <div class="revtest" style="padding-bottom: 25px;">
-														<div class="review-title"><span class="summary">Name</span><span class="date"><i class="fa fa-calendar"></i><span> Date </span></span></div>
+											<div class="reviews" *ngIf="product.reviews.length > 0; else noReview">
+												<div class="review" *ngFor="let review of product.reviews">
+												    <div class="revtest" style="padding-bottom: 25px;" >
+														<div class="review-title">
+															<span class="summary">{{ review.user}}</span><span class="date"><i class="fa fa-calendar"></i><span> {{ review.date | date }} </span></span>
+														</div>
 														<div class="text">Description</div>
 													</div><!-- /.reviewtest -->
-
-
-												     <div class="review-title"><span class="summary">No reviews yet.</span></div>
-														<div class="text">Be the first one to review this product.</div>
-
+												     <div class="review-title"><span class="summary"></span></div>
+														<div class="text">{{ review.description }}</div>
 												</div>
+                      						</div><!-- /.reviews -->
 
+										<ng-template #noReview>
+											<div class="reviews">
+											<div class="review">
+												<div class="review-title"><span class="summary">No reviews yet.</span></div>
+												<div class="text">Be the first one to review this product</div>
+											</div>
 											</div><!-- /.reviews -->
+										</ng-template>
 										</div><!-- /.product-reviews -->
 
 
@@ -198,17 +182,10 @@
 
 											<div class="review-form">
 												<div class="form-container">
-													<form role="form" class="cnt-form">
+													<form role="form" class="cnt-form" [formGroup]="postReviewForm" (ngSubmit)="onReviewSubmit()">
 
 														<div class="row">
 															<div class="col-sm-6">
-																<div class="form-group">
-																	<label for="exampleInputName">Your Name <span class="astk">*</span></label>
-
-																	<input type="text" class="form-control txt" id="exampleInputName" placeholder="">
-
-
-																</div><!-- /.form-group -->
 																<div class="form-group">
 																	<label for="exampleInputSummary">Rating <span class="astk">*</span></label>
 															      <div class="star-rating" style="color: yellow; font-size: 30px;">
@@ -217,21 +194,23 @@
 															        <span class="fa fa-star-o" data-rating="3"></span>
 															        <span class="fa fa-star-o" data-rating="4"></span>
 															        <span class="fa fa-star-o" data-rating="5"></span>
-															        <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+															        <input type="hidden" formControlName="rating">
 															      </div>
 															   </div><!-- /.form-group -->
 															</div>
 
 															<div class="col-md-6">
 																<div class="form-group">
-																	<label for="exampleInputReview">Review <span class="astk">*</span></label>
-																	<textarea class="form-control txt txt-review" id="exampleInputReview" rows="4" placeholder="" name="description"></textarea>
-																</div><!-- /.form-group -->
+                                  <label for="exampleInputReview">Review <span class="astk">*</span></label>
+                                  <input type="hidden" formControlName="product">
+																	<textarea class="form-control txt txt-review" id="exampleInputReview" rows="4" placeholder="" formControlName="description"></textarea>
+                                  <small class="text-danger" [hidden]="!errorReview.description">{{ errorReview.description }}</small>
+                                </div><!-- /.form-group -->
 															</div>
 														</div><!-- /.row -->
 
 														<div class="action text-right">
-															<button class="btn btn-primary btn-upper">SUBMIT REVIEW</button>
+															<button type="submit" class="btn btn-primary btn-upper">SUBMIT REVIEW</button>
 														</div><!-- /.action -->
 
 													</form><!-- /.cnt-form -->

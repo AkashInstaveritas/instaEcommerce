@@ -21,6 +21,7 @@ export class ProductDetailComponent implements OnInit {
   public showMssg: boolean;
   public errorMssg: boolean;
   public error: any = [];
+  public errorReview: any = [];
 
   constructor
   (
@@ -44,6 +45,7 @@ export class ProductDetailComponent implements OnInit {
 
     this.productDetail();
     this.loadCartDefaultData();
+    this.loadReviewDefaultData();
   }
 
   productDetail()
@@ -136,6 +138,60 @@ export class ProductDetailComponent implements OnInit {
     }
 
     this.notification.showError(error.error.errors.product_id, 'Error!')
+  }
+
+  /**
+   * Start of code for submitting product review
+   */
+  postReviewForm = this.fb.group({
+    rating: ['', Validators.required],
+    product: ['', Validators.required],
+    description: [''],
+  });
+
+  loadReviewDefaultData()
+  {
+    this.postReviewForm.setValue({
+      rating: '1',
+      product: this.productId,
+      description: '',
+    });
+  }
+
+  onReviewSubmit()
+  {
+    this.setLoginStatus();
+
+    if(this.loggedIn == true)
+    {
+      //console.log(this.postReviewForm.value);
+      this._productDetailService.addProductReview(this.postReviewForm.value)
+          .subscribe(
+            data => this.handleReviewResponse(data),
+            error => this.handleReviewError(error),
+          )
+    }
+    else
+    {
+      this.notification.showInfo('For posting review for the selcted product!', 'LogIn!');
+    }
+  }
+
+  handleReviewResponse(data)
+  {
+    this.notification.showSuccess(data.message, 'Success!');
+    this.productDetail();
+    this.postReviewForm.reset();
+  }
+  handleReviewError(error)
+  {
+    this.errorReview = error.error.errors;
+
+    if(error.error.errors.product)
+    {
+      this.notification.showError(error.error.errors.product, 'Error!')
+    }
+
   }
 
 
