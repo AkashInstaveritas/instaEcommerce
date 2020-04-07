@@ -20,6 +20,8 @@ import { RequestResetComponent } from './components/password/request-reset/reque
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrderComponent } from './components/order/order.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { OrderComponent } from './components/order/order.component';
     ResponseResetComponent,
     CheckoutComponent,
     OrderComponent,
+    FooterComponent,
+    HomeComponent,
 
   ],
   imports: [

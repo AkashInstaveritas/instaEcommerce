@@ -57,8 +57,8 @@ export class CartComponent implements OnInit {
 
   handleUpdateQuantityError(error)
   {
-    this.notification.showError(error.error.errors.quantity, 'Error!')
-    this.getCart()
+    this.notification.showError(error.error.errors.quantity, 'Error!');
+    this.getCart();
   }
 
   removeProduct(event: MouseEvent, id)

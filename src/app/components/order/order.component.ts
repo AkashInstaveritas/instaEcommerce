@@ -27,4 +27,16 @@ export class OrderComponent implements OnInit {
     .subscribe(data => this.orders = data);
   }
 
+  cancelOrder(event: MouseEvent, id)
+  {
+    event.preventDefault();
+
+    //console.log(id);
+    this.orderService.cancelUserOrder(id)
+    .subscribe(data => {
+      this.notification.showSuccess(data.message, 'Success!'),
+      this.getOrders()
+    });
+  }
+
 }

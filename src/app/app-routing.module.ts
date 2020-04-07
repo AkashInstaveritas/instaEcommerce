@@ -13,9 +13,13 @@ import { RequestResetComponent } from './components/password/request-reset/reque
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrderComponent } from './components/order/order.component';
+import { HomeComponent } from './components/home/home.component';
+
 
 
 const routes: Routes = [
+  {path: '', redirectTo:'/home', pathMatch:'full'},
+  {path: 'home', component: HomeComponent},
   {path: 'logIn', component: RegistrationComponent, canActivate: [BeforeLoginService]},
   {path: 'product-detail/:id', component: ProductDetailComponent},
   {path: 'wishlist', component: WishlistComponent, canActivate: [AfterLoginService]},
@@ -42,5 +46,7 @@ export const routingComponents = [
   ProductDisplayComponent,
   CartComponent,
   WishlistComponent,
-  CheckoutComponent
+  CheckoutComponent,
+  OrderComponent,
+  HomeComponent
 ];

@@ -31,4 +31,13 @@ export class OrderService {
       })
     });
   }
+
+  cancelUserOrder(id): Observable<any>
+  {
+    return this._http.get<any>(`${this.baseUrl}/order/cancel/` + id, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.Token.get()}`
+      })
+    });
+  }
 }

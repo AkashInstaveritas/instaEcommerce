@@ -88,7 +88,7 @@ export class ProductDetailComponent implements OnInit {
 
   handleWishlistError(error)
   {
-    this.error = error.error.errors;
+    this.notification.showError(error.error.errors.product_id, 'Error!')
   }
 
   /**

@@ -20,10 +20,19 @@
               <span style="display: inline-block; width: 50%">
                 <a href="#" class="btn btn-upper btn-primary outer-left-xs">Order Total - {{ order.total | currency: 'INR' }}</a>
               </span>
-              <span style="font-size: 15px; float: right;">
-                 <a href="#" class="btn btn-info btn-md" role="button">Cancel Order</a>
+
+              <span style="font-size: 15px; float: right;" *ngIf="order.status == 0; else orderCancelled">
+                <a href="#" class="btn btn-info btn-md" (click)="cancelOrder($event, order.id)">Cancel Order</a>
               </span>
+              <ng-template #orderCancelled>
+                <span style="font-size: 15px; float: right;">
+                  <button class="btn btn-info btn-md">Order Cancelled</button>
+                </span>
+              </ng-template>
             </div>
+
+
+
 
             <div class="table-responsive">
               <table class="table">
@@ -61,12 +70,11 @@
                 </tbody>
               </table>
             </div>
+
           <div>
 
-
-
-        </div>
-        </div><!-- /.row -->
+        </div><!--my-wishlist-->
+      </div><!-- /.row -->
     </div><!-- /.my-wishlist-page-->
   </div><!--Container-->
 </div><!--Body-Content-->

@@ -22,7 +22,7 @@ export class MainNavComponent implements OnInit {
     private Auth: AuthService,
     private router: Router,
     private Token: TokenService,
-    private _subCategories: SubCategoriesService
+    private _subCategories: SubCategoriesService,
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +40,7 @@ export class MainNavComponent implements OnInit {
     this.Auth.changeAuthStatus(false);
     this.router.navigate(['/logIn']);
   }
+
 
   getSubCategories(event: MouseEvent, id)
   {

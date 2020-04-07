@@ -28,7 +28,7 @@
                   <tr *ngFor="let product of wishlists.data">
                     <td class="col-md-2"><img src="./assets/dummy.jpg" alt="imga"></td>
                     <td class="col-md-7">
-                      <div class="product-name"><a href="#">{{ product.name | titlecase }}</a></div>
+                      <div class="product-name"><a routerLink="/product-detail/{{product.id}}">{{ product.name | titlecase }}</a></div>
                       <div class="rating">
 
                         <span *ngIf="product.rating != 0; else noRating" class="badge badge-success" style="font-size: 99%; color: white;">

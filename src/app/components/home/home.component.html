@@ -1,0 +1,71 @@
+<div class="container">
+  <h4>Featured Products</h4>
+  <div class="row">
+    <div class="col-xs-12 col-md-6" *ngFor="let product of featuredProducts.data">
+
+      <!-- First product box start here-->
+      <div class="prod-info-main prod-wrap clearfix">
+
+        <div class="row">
+          <div class="col-md-5 col-sm-12 col-xs-12">
+            <div class="product-image">
+              <img src="./assets/dummy.jpg" class="img-responsive">
+                  <span class="tag2 hot">SPECIAL</span>
+            </div>
+          </div>
+
+          <div class="col-md-7 col-sm-12 col-xs-12">
+            <div class="product-deatil">
+
+              <h5 class="name">
+                <a href="#">{{ product.name | titlecase }}</a>
+              </h5>
+
+              <p class="price-container">
+                <span>{{ product.price }}</span>
+              </p>
+              <span class="tag1"></span>
+            </div>
+
+            <div class="description">
+                <p>{{ product.detail }} </p>
+            </div>
+
+            <div class="product-info smart-form">
+              <div class="row">
+                <div class="col-md-12">
+                  <a href="#" class="btn btn-danger" (click)="addProductWishlist($event, product.id)"><i class="fa fa-heart"></i> </a>
+                  <a routerLink="/product-detail/{{product.id}}" class="btn btn-info">More info</a>
+                </div>
+
+                <div class="col-md-12">
+
+                  <div class="rating">Rating:
+
+                    <span *ngIf="product.rating != 0; else noRating" class="badge badge-success" style="color: white;">
+                      {{ product.rating }} ★
+                    </span>
+                    <ng-template #noRating>
+                      <span class="badge badge-success" style="color: white;">
+                        No rating yet
+                      </span>
+                    </ng-template>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+     <!-- end product -->
+
+    </div>
+  </div><!--end product row-->
+</div><!--end product container-->
