@@ -173,7 +173,7 @@ export class ProductDetailComponent implements OnInit {
     }
     else
     {
-      this.notification.showInfo('For posting review for the selcted product!', 'LogIn!');
+      this.notification.showInfo('For posting review for the selected product!', 'LogIn!');
     }
   }
 

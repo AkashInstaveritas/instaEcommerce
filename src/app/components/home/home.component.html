@@ -10,7 +10,7 @@
           <div class="col-md-5 col-sm-12 col-xs-12">
             <div class="product-image">
               <img src="./assets/dummy.jpg" class="img-responsive">
-                  <span class="tag2 hot">SPECIAL</span>
+                  <span class="tag2 hot" >Special</span>
             </div>
           </div>
 
@@ -18,11 +18,11 @@
             <div class="product-deatil">
 
               <h5 class="name">
-                <a href="#">{{ product.name | titlecase }}</a>
+                <a routerLink="/product-detail/{{product.id}}">{{ product.name | titlecase }}</a>
               </h5>
 
               <p class="price-container">
-                <span>{{ product.price }}</span>
+                <span>{{ product.price | currency: 'INR' }}</span>
               </p>
               <span class="tag1"></span>
             </div>

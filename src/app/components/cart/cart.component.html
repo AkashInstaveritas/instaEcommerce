@@ -14,7 +14,7 @@
 		<div class="row ">
 			<div class="shopping-cart">
 
-				<div class="shopping-cart-table ">
+				<div class="shopping-cart-table">
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -39,7 +39,7 @@
                   </td>
                 </tr>
               </tfoot>
-              <tbody>
+              <tbody *ngIf="carts.data.length > 0; else emptyCart">
                 <tr *ngFor="let product of carts.data">
                   <td class="romove-item"><a href="#" (click)="removeProduct($event, product.id)" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
                   <td class="cart-image">
@@ -87,9 +87,15 @@
                   <td class="cart-product-grand-total"><span class="cart-grand-total-price">₹ {{ product.total }}</span></td>
                 </tr>
               </tbody><!-- /tbody -->
+              <ng-template #emptyCart>
+                <tbody>
+                  <h1 style="text-align: center;">No items in your cart.</h1>
+                </tbody>
+              </ng-template>
             </table><!-- /table -->
           </div>
         </div><!-- /.shopping-cart-table -->
+
 
         <div class=" col-sm-12  estimate-ship-tax">
           <table class="table">

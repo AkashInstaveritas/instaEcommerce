@@ -93,11 +93,11 @@ export class CheckoutComponent implements OnInit {
    */
 
   onOrderSubmit(value: any) {
-
+    //console.log(value);
     this.checkout.placeUserOrder(value)
         .subscribe(data => this.handleOrderPlaceResponse(data),
                    error => this.handleOrderPlaceError(error));
-    console.log(value);
+
   }
 
   handleOrderPlaceResponse(data)
