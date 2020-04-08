@@ -14,6 +14,7 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrderComponent } from './components/order/order.component';
 import { HomeComponent } from './components/home/home.component';
+import { OrderDetailsComponent } from './components/orders/order-details/order-details.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent, canActivate: [AfterLoginService]},
   {path: 'checkout', component: CheckoutComponent , canActivate: [AfterLoginService]},
   {path: 'orders', component: OrderComponent , canActivate: [AfterLoginService]},
+  {path: 'order-detail/:id', component: OrderDetailsComponent, canActivate: [AfterLoginService]},
   {path: 'products/:id', component: ProductDisplayComponent},
   {path: 'my-profile', component: UserProfileComponent, canActivate: [AfterLoginService]},
   {path: 'my-addresses', component: UserAddressComponent, canActivate: [AfterLoginService]},

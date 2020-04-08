@@ -40,4 +40,13 @@ export class OrderService {
       })
     });
   }
+
+  getOrderDetails(id): Observable<any>
+  {
+    return this._http.get<any>(`${this.baseUrl}/order/` + id, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.Token.get()}`
+      })
+    });
+  }
 }

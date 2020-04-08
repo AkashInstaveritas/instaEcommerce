@@ -15,8 +15,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ProductDetailComponent implements OnInit {
 
-  public productId;
-  public product;
+  public productId: any;
+  public product: any;
   public loggedIn: boolean;
   public showMssg: boolean;
   public errorMssg: boolean;

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { OrderComponent } from './components/order/order.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+import { OrderDetailsComponent } from './components/orders/order-details/order-details.component';
 
 
 @NgModule({
@@ -41,10 +44,13 @@ import { HomeComponent } from './components/home/home.component';
     OrderComponent,
     FooterComponent,
     HomeComponent,
+    OrderDetailsComponent,
 
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

@@ -103,7 +103,7 @@ export class CheckoutComponent implements OnInit {
   handleOrderPlaceResponse(data)
   {
     this.notification.showSuccess(data.message, "Success!");
-    this.router.navigate(['/my-profile']);
+    this.router.navigate(['/orders']);
   }
 
   handleOrderPlaceError(error)

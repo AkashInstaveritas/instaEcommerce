@@ -1,0 +1,97 @@
+<div class="breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-inner">
+			<ul class="list-inline list-unstyled">
+				<li><a href="#">Home</a></li>
+				<li class='active'>Order Detail</li>
+			</ul>
+		</div><!-- /.breadcrumb-inner -->
+	</div><!-- /.container -->
+</div><!-- /.breadcrumb -->
+
+<div class="body-content">
+	<div class="container">
+		<div class="my-wishlist-page">
+			<div class="row">
+				<div class="col-md-12 my-wishlist">
+
+          <div style="padding-bottom: 50px;">
+						<h3 style="font-weight: bold; font-size: 22px;">Order Status
+
+              <span style="font-size: 15px; float: right;" *ngIf="detail.data.status == 0; else orderCancelled">
+                <a href="#" class="btn btn-info btn-md">Cancel Order</a>
+              </span>
+              <ng-template #orderCancelled>
+                <span style="font-size: 15px; float: right;" *ngIf="detail.data.status == 1; else orderCompleted">
+                  <button class="btn btn-info btn-md">Order Cancelled</button>
+                </span>
+              </ng-template>
+              <ng-template #orderCompleted>
+                <span style="font-size: 22px; float: right;">
+                  <button class="btn btn-info btn-md">Order Completed</button>
+                </span>
+              </ng-template>
+
+            </h3>
+            <hr>
+            <h5 style="font-weight: bold;">Order Placed:</h5>
+              <p>{{ detail.data.placedOn | date }}</p>
+            <hr>
+						<h5 style="font-weight: bold;">Delivery Address:</h5>
+              <p>{{ detail.data.address }}</p>
+              <hr>
+              <h5 style="font-weight: bold;">Price Details:</h5>
+              <p><span style="font-weight: bold; padding-right: 10px;">Order Total - </span> {{ detail.data.total | currency: 'INR' }}</p>
+              <p><span style="font-weight: bold; padding-right: 10px;">Order SubTotal - </span> {{ detail.data.subTotal | currency: 'INR' }}</p>
+              <p><span style="font-weight: bold; padding-right: 10px;">Order Tax - </span> {{ detail.data.tax }}</p>
+					</div>
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th colspan="4" class="heading-title">Order Products</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr *ngFor="let product of detail.data.products">
+                    <td class="col-md-2"><img src="./assets/dummy.jpg" alt="imga"></td>
+                    <td class="col-md-7">
+                      <div class="product-name"><a routerLink="/product-detail/{{product.id}}">{{ product.name | titlecase }}</a></div>
+                      <div class="rating">
+
+                        <span *ngIf="product.rating != 0; else noRating" class="badge badge-success" style="font-size: 99%; color: white;">
+                          {{ product.rating }} ★
+                        </span>
+                        <ng-template #noRating>
+                          <span class="badge badge-success" style="color: white;">
+                            No rating yet
+                        </span>
+                        </ng-template>
+
+                        <!-- <span class="review">(  Reviews)</span> -->
+                      </div>
+                      <div class="price">
+                        {{ product.price | currency: 'INR' }}
+                      </div>
+                    </td>
+                    <td class="col-md-2">
+                      {{ product.detail }}
+                    </td>
+                    <!-- <td class="col-md-1 close-btn">
+                      {{ product.detail }}
+                    </td> -->
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        </div><!-- /.row -->
+    </div><!-- /.my-wishlist-page-->
+  </div><!--Container-->
+</div><!--Body-Content-->
+
+
