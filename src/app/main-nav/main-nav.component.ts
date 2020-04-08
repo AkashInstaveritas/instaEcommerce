@@ -15,6 +15,7 @@ export class MainNavComponent implements OnInit {
   public categories: any = [];
   public mainCategories: any = [];
   public loggedIn: boolean;
+  public touchedSubcategory: boolean = false;
 
   constructor
   (
@@ -45,16 +46,24 @@ export class MainNavComponent implements OnInit {
   getSubCategories(event: MouseEvent, id)
   {
     event.preventDefault();
+    this.touchedSubcategory = true;
 
     this._subCategories.getSubCategories(id)
     .subscribe(data => this.mainCategories = data);
+
   }
 
   getProducts(event: MouseEvent, id)
   {
     event.preventDefault();
 
+
     this.router.navigate(['/products/' + id]);
+  }
+
+  subDataDisappear(event: MouseEvent)
+  {
+    this.touchedSubcategory = false;
   }
 
 }

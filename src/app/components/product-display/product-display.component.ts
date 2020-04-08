@@ -17,19 +17,6 @@ export class ProductDisplayComponent implements OnInit {
   public loggedIn: boolean;
   public error: any = [];
   p: number = 1;
-  startIndex = 0;
-  endIndex = 6;
-
-
-  getArrayFromNumber(length)
-  {
-    return new Array(Math.round(length/4));
-  }
-  updateIndex(pageIndex)
-  {
-    this.startIndex = pageIndex * 6;
-    this.endIndex = this.startIndex + 6;
-  }
 
   constructor
   (

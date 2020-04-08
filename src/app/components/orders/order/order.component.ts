@@ -4,7 +4,7 @@ import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-order',
-  templateUrl: './order.component.html',
+  templateUrl: `order.component.html`,
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {

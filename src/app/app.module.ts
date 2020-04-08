@@ -21,7 +21,7 @@ import { UserAddressComponent } from './components/user-address/user-address.com
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { OrderComponent } from './components/order/order.component';
+import { OrderComponent } from './components/orders/order/order.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { OrderDetailsComponent } from './components/orders/order-details/order-details.component';
