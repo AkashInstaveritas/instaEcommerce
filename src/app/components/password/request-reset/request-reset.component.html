@@ -27,6 +27,7 @@
                 <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
                 <small class="text-danger" *ngIf="email.errors.email">Email format not correct.</small>
               </div>
+              <small class="text-danger" [hidden]="!error.error">{{ error.error }}</small>
             </div>
 
               <button [disabled]="!requestResetForm.valid" type="submit" class="btn-upper btn btn-primary checkout-page-button">Send password reset email</button>

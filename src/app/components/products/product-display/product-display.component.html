@@ -13,6 +13,8 @@
               <div class="widget-header">
                 <h4 class="widget-title">Filters</h4>
               </div>
+              <form [formGroup]="shopForm" (ngSubmit)="onApplyFilter(products.data.id)">
+
               <div class="sidebar-widget-body" *ngFor="let filter of products.data.filters">
                   <div class="accordion">
 
@@ -22,15 +24,15 @@
                           </div>
 
                           <div class="accordion-body collapse" style="display: block;">
+
                             <div class="accordion-inner" id="bhak">
                                 <ul class="filterings" *ngFor="let filterOption of filter.filterOptions">
 
                                   <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="onChangeFilter(filterOption.id, $event.target.checked)">
                                     <label class="form-check-label" for="exampleCheck1">{{ filterOption.name }}</label>
                                   </div>
 
-                                  <!-- <li class="filtering"><a href="#">{{ filterOption.name }}</a></li> -->
                                 </ul>
                             </div>
 
@@ -47,15 +49,18 @@
               <div class="widget-header">
                 <h4 class="widget-title">Brands</h4>
               </div>
-              <div class="sidebar-widget-body">
+
+              <div class="sidebar-widget-body" formArrayName="brand">
                 <ul class="list" *ngFor="let brand of products.data.brands">
                   <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="onChangeBrand(brand.id, $event.target.checked)">
                     <label class="form-check-label" for="exampleCheck1">{{ brand.name }}</label>
                   </div>
                 </ul>
+                <button [disabled]="!shopForm.valid" type="submit">Submit</button>
               </div>
               <!-- /.sidebar-brand-widget-body -->
+            </form>
             </div>
             <!-- /.sidebar-widget -->
           </div>
@@ -68,8 +73,75 @@
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div><!-- End Pagination top div-->
 
-          <div class="row">
+          <div class="row" [hidden]="filtersData">
             <div class="col-xs-12 col-md-6" *ngFor="let product of products.data.products | paginate: { itemsPerPage: 10, currentPage: p }">
+
+              <!-- First product box start here-->
+              <div class="prod-info-main prod-wrap clearfix">
+
+                <div class="row">
+                  <div class="col-md-5 col-sm-12 col-xs-12">
+                    <div class="product-image">
+                      <img src="./assets/dummy.jpg" class="img-responsive">
+                          <span class="tag2 hot">SPECIAL</span>
+                    </div>
+                  </div>
+
+                  <div class="col-md-7 col-sm-12 col-xs-12">
+                    <div class="product-deatil">
+
+                      <h5 class="name">
+                        <a routerLink="/product-detail/{{product.id}}">{{ product.name | titlecase }}</a>
+                      </h5>
+
+                      <p class="price-container">
+                        <span>{{ product.price }}</span>
+                      </p>
+                      <span class="tag1"></span>
+                    </div>
+
+                    <div class="description">
+                        <p>{{ product.detail }} </p>
+                    </div>
+
+                    <div class="product-info smart-form">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <a href="#" class="btn btn-danger" (click)="addProductWishlist($event, product.id)"><i class="fa fa-heart"></i> </a>
+                          <a routerLink="/product-detail/{{product.id}}" class="btn btn-info">More info</a>
+                        </div>
+
+                        <div class="col-md-12">
+
+                          <div class="rating">Rating:
+
+                            <span *ngIf="product.rating != 0; else noRating" class="badge badge-success" style="color: white;">
+                              {{ product.rating }} ★
+                            </span>
+                            <ng-template #noRating>
+                              <span class="badge badge-success" style="color: white;">
+                                No rating yet
+                              </span>
+                            </ng-template>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div><!-- end product -->
+          </div><!--end product row-->
+
+          <div class="row" [hidden]="!filtersData">
+            <div class="col-xs-12 col-md-6" *ngFor="let product of filteredProducts.data | paginate: { itemsPerPage: 10, currentPage: p }">
 
               <!-- First product box start here-->
               <div class="prod-info-main prod-wrap clearfix">

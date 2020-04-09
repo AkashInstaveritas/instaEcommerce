@@ -44,7 +44,6 @@ export class RequestResetComponent implements OnInit {
 
   onSubmit()
   {
-    //console.log(this.registrationForm.value);
     this.reset.sendPasswordResetLink(this.requestResetForm.value)
         .subscribe(
           data => this.handleRequestEmailResponse(data),
@@ -61,9 +60,7 @@ export class RequestResetComponent implements OnInit {
 
   handleRequestEmailError(error)
   {
-    //this.error = error.error.error;
-    console.log(error);
-    this.notification.showError(error.error, "Error!");
+    this.error = error.error;
   }
 
 

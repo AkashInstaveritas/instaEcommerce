@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from 'src/app/categories.service';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { TokenService } from '../services/token.service';
-import { SubCategoriesService } from '../services/sub-categories.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
+import { SubCategoriesService } from 'src/app/services/sub-categories.service';
+
+
 
 @Component({
   selector: 'app-main-nav',
