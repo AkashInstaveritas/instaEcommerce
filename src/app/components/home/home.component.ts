@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDetailService } from 'src/app/product-detail.service';
+import { ProductDetailService } from 'src/app/services/product-detail.service';
 import { WishlistService } from 'src/app/services/wishlist.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { AuthService } from 'src/app/services/auth.service';

@@ -19,6 +19,7 @@ export class ProductDisplayComponent implements OnInit {
   public loggedIn: boolean;
   public error: any = [];
   p: number = 1;
+  q: number = 1;
   public selectedBrand: any = [];
   public filtersData: boolean = false;
 
@@ -55,6 +56,11 @@ export class ProductDisplayComponent implements OnInit {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
   }
 
+  /**
+   * Start of code for adding product to wishlist
+   * @param event
+   * @param id
+   */
   addProductWishlist(event: MouseEvent, id)
   {
     event.preventDefault();
@@ -81,11 +87,20 @@ export class ProductDisplayComponent implements OnInit {
     this.notification.showError(error.error.errors.product_id, 'Error!')
   }
 
+  /**
+   * End of code for adding product to wishlist
+   */
 
-shopForm = this.fb.group({
-    brand: this.fb.array([], [Validators.required]),
-    filter: this.fb.array([]),
-  });
+
+   /**
+   * Start of code for filtering products with use of filteroptions and brands
+   * @param form
+   * @param id
+   */
+  shopForm = this.fb.group({
+      brand: this.fb.array([]),
+      filter: this.fb.array([]),
+    });
 
   onChangeBrand(id:string, isChecked: boolean) {
     const brandFormArray = <FormArray>this.shopForm.controls.brand;
@@ -111,11 +126,22 @@ shopForm = this.fb.group({
 
   onApplyFilter(id)
   {
-    //console.log(this.shopForm.value);
-    this.productsService.getProductFromBrands(id, this.shopForm.value)
+    if((this.shopForm.get('filter').value.length) > 0  || (this.shopForm.get('brand').value.length) > 0)
+    {
+      this.productsService.getProductFromBrands(id, this.shopForm.value)
         .subscribe(data => this.filteredProducts = data);
 
         this.filtersData = true;
+    }
+    else
+    {
+      this.getProducts();
+      this.filtersData = false;
+    }
   }
+
+  /**
+   * End of code for filtering products with use of filteroptions and brands
+   */
 
 }

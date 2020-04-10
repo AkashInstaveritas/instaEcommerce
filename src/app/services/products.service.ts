@@ -23,7 +23,7 @@ export class ProductsService {
 
   getProductFromBrands(id, data): Observable<any>
   {
-    return this._http.post<any>(`${this.baseUrl}/subcategory/brand/` + id, data, {
+    return this._http.post<any>(`${this.baseUrl}/subcategory/filter/products/` + id, data, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })

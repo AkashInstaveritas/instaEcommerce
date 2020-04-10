@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { ProductDetailService } from 'src/app/product-detail.service';
+import { ProductDetailService } from 'src/app/services/product-detail.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CartService } from 'src/app/services/cart.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -117,6 +117,7 @@ export class ProductDetailComponent implements OnInit {
 
     if(this.loggedIn == true)
     {
+      //console.log(this.addToCartForm.value);
       this.cart.addProductToCart(this.addToCartForm.value)
           .subscribe(
             data => this.notification.showSuccess(data.message, 'Success!'),
