@@ -17,9 +17,7 @@
         <div class="col-md-6 col-sm-6 sign-in">
           <h4 class="">Send email to reset password.</h4>
 
-
           <form class="register-form outer-top-xs" role="form" [formGroup]="requestResetForm" (ngSubmit)="onSubmit()">
-
             <div class="form-group">
               <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
               <input type="email" formControlName="email" [class.is-invalid]="email.invalid && email.touched" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
@@ -29,9 +27,10 @@
               </div>
               <small class="text-danger" [hidden]="!error.error">{{ error.error }}</small>
             </div>
-
-              <button [disabled]="!requestResetForm.valid" type="submit" class="btn-upper btn btn-primary checkout-page-button">Send password reset email</button>
+            <button [disabled]="!requestResetForm.valid" type="submit" class="btn-upper btn btn-primary checkout-page-button">Send password reset email</button>
+              <a routerLink="/logIn" class="btn-upper btn btn-primary" style="float: right;">Back to login</a>
           </form>
+
         </div>
         <!-- Sign-in -->
 		  </div><!-- /.row -->

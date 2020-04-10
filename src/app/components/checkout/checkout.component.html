@@ -91,7 +91,7 @@
                             <div class="row">
                               <div class="col-sm-4">
                                 <div class="rating rateit-small">
-                                  <span class="cart-sub-total-price">₹ {{ product.price }}</span>
+                                  <span class="cart-sub-total-price">{{ product.price | currency: 'INR' }}</span>
                                 </div>
                                 <a href="#" (click)="removeProduct($event, product.id)" title="cancel" class="icon">Remove</a>
                               </div>
