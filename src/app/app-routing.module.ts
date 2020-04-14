@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { UserAddressComponent } from './components/user-address/user-address.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductDisplayComponent } from './components/products/product-display/product-display.component';
@@ -12,9 +11,9 @@ import { AfterLoginService } from './services/after-login.service';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { OrderComponent } from './components/orders/order/order.component';
 import { HomeComponent } from './components/home/home.component';
-import { OrderDetailsComponent } from './components/orders/order-details/order-details.component';
+import { AddressModule } from './address/address.module';
+import { OrdersModule } from './orders/orders.module';
 
 
 
@@ -26,11 +25,10 @@ const routes: Routes = [
   {path: 'wishlist', component: WishlistComponent, canActivate: [AfterLoginService]},
   {path: 'cart', component: CartComponent, canActivate: [AfterLoginService]},
   {path: 'checkout', component: CheckoutComponent , canActivate: [AfterLoginService]},
-  {path: 'orders', component: OrderComponent , canActivate: [AfterLoginService]},
-  {path: 'order-detail/:id', component: OrderDetailsComponent, canActivate: [AfterLoginService]},
+  {path: 'orders', loadChildren: './orders/orders.module#OrdersModule' , canActivate: [AfterLoginService]},
   {path: 'products/:id', component: ProductDisplayComponent},
+  {path: 'addresses', loadChildren: './address/address.module#AddressModule', canActivate: [AfterLoginService]},
   {path: 'my-profile', component: UserProfileComponent, canActivate: [AfterLoginService]},
-  {path: 'my-addresses', component: UserAddressComponent, canActivate: [AfterLoginService]},
   {path: 'request-password-reset', component: RequestResetComponent, canActivate: [BeforeLoginService]},
   {path: 'response-password-reset', component: ResponseResetComponent, canActivate: [BeforeLoginService]},
 ];
@@ -49,6 +47,5 @@ export const routingComponents = [
   CartComponent,
   WishlistComponent,
   CheckoutComponent,
-  OrderComponent,
   HomeComponent
 ];

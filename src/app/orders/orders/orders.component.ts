@@ -3,11 +3,11 @@ import { OrderService } from 'src/app/services/order.service';
 import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
-  selector: 'app-order',
-  templateUrl: `order.component.html`,
-  styleUrls: ['./order.component.css']
+  selector: 'app-orders',
+  templateUrl: './orders.component.html',
+  styleUrls: ['./orders.component.css']
 })
-export class OrderComponent implements OnInit {
+export class OrdersComponent implements OnInit {
 
   public orders: any = [];
 
