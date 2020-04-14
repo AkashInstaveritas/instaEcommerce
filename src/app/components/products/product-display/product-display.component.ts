@@ -4,19 +4,24 @@ import { ProductsService } from 'src/app/services/products.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { WishlistService } from 'src/app/services/wishlist.service';
 import { NotificationService } from 'src/app/services/notification.service';
+import { FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-display',
-  templateUrl: './product-display.component.html',
+  templateUrl: `product-display.component.html`,
   styleUrls: ['./product-display.component.css']
 })
 export class ProductDisplayComponent implements OnInit {
 
-  public subCategoryId;
+  public subCategoryId: any;
   public products: any = [];
+  public filteredProducts: any = [];
   public loggedIn: boolean;
   public error: any = [];
   p: number = 1;
+  q: number = 1;
+  public selectedBrand: any = [];
+  public filtersData: boolean = false;
 
   constructor
   (
@@ -25,7 +30,8 @@ export class ProductDisplayComponent implements OnInit {
     private productsService: ProductsService,
     private Auth: AuthService,
     private Wishlist: WishlistService,
-    private notification: NotificationService
+    private notification: NotificationService,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
@@ -43,7 +49,6 @@ export class ProductDisplayComponent implements OnInit {
   {
     this.productsService.getProductFromSubCategory(this.subCategoryId)
     .subscribe(data => this.products = data)
-    // .subscribe(data => console.log(data.data.filters[0].filterOptions));
   }
 
   setLoginStatus()
@@ -51,6 +56,11 @@ export class ProductDisplayComponent implements OnInit {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
   }
 
+  /**
+   * Start of code for adding product to wishlist
+   * @param event
+   * @param id
+   */
   addProductWishlist(event: MouseEvent, id)
   {
     event.preventDefault();
@@ -76,5 +86,62 @@ export class ProductDisplayComponent implements OnInit {
   {
     this.notification.showError(error.error.errors.product_id, 'Error!')
   }
+
+  /**
+   * End of code for adding product to wishlist
+   */
+
+
+   /**
+   * Start of code for filtering products with use of filteroptions and brands
+   * @param form
+   * @param id
+   */
+  shopForm = this.fb.group({
+      brand: this.fb.array([]),
+      filter: this.fb.array([]),
+    });
+
+  onChangeBrand(id:string, isChecked: boolean) {
+    const brandFormArray = <FormArray>this.shopForm.controls.brand;
+
+    if(isChecked) {
+      brandFormArray.push(new FormControl(id));
+    } else {
+      let index = brandFormArray.controls.findIndex(x => x.value == id)
+      brandFormArray.removeAt(index);
+    }
+  }
+
+  onChangeFilter(id:string, isChecked: boolean) {
+    const filterFormArray = <FormArray>this.shopForm.controls.filter;
+
+    if(isChecked) {
+      filterFormArray.push(new FormControl(id));
+    } else {
+      let index = filterFormArray.controls.findIndex(x => x.value == id)
+      filterFormArray.removeAt(index);
+    }
+  }
+
+  onApplyFilter(id)
+  {
+    if((this.shopForm.get('filter').value.length) > 0  || (this.shopForm.get('brand').value.length) > 0)
+    {
+      this.productsService.getProductFromBrands(id, this.shopForm.value)
+        .subscribe(data => this.filteredProducts = data);
+
+        this.filtersData = true;
+    }
+    else
+    {
+      this.getProducts();
+      this.filtersData = false;
+    }
+  }
+
+  /**
+   * End of code for filtering products with use of filteroptions and brands
+   */
 
 }

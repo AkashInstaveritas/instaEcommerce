@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { PasswordValidator } from 'src/app/shared/password.validator';
-import { RegistrationService } from 'src/app/registration.service';
-import { TokenService } from '../services/token.service';
+import { RegistrationService } from 'src/app/services/registration.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-registration',

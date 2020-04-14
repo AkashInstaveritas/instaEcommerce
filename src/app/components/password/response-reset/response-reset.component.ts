@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { RegistrationService } from 'src/app/registration.service';
+import { RegistrationService } from 'src/app/services/registration.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { NotificationService } from 'src/app/services/notification.service';
 import { PasswordValidator } from 'src/app/shared/password.validator';

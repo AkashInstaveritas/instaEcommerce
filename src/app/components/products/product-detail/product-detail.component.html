@@ -6,7 +6,7 @@
 			<ul class="list-inline list-unstyled">
 				<li><a href="#">Home</a></li>
 				<li><a href="#"> Sub Category </a></li>
-				<li class='active'>{{ product.name }}</li>
+				<li class='active'>{{ product.data.name }}</li>
 			</ul>
 		</div><!-- /.breadcrumb-inner -->
 	</div><!-- /.container -->
@@ -35,11 +35,11 @@
 
 						<div class='col-sm-6 col-md-7 product-info-block'>
 							<div class="product-info">
-								<h1 class="name">{{ product.name }}</h1>
+								<h1 class="name">{{ product.data.name }}</h1>
 								<div class="rating-reviews m-t-20">
 									<div class="row">
 										<div class="col-sm-3" style="width: 8%;">
-											<span class="badge badge-success" style="font-size: 99%;">{{ product.rating }} ★ </span>
+											<span class="badge badge-success" style="font-size: 99%;">{{ product.data.rating }} ★ </span>
 										</div>
 										<div class="col-sm-8">
 											<div class="reviews" style="font-size: 16px;">
@@ -64,26 +64,26 @@
 										</div>
 										<div class="col-sm-9">
 											<div class="stock-box">
-												<span class="badge badge-success">{{ product.quantity }} </span>
+												<span class="badge badge-success">{{ product.data.quantity }} </span>
 											</div>
 										</div>
 									</div><!-- /.row -->
 								</div><!-- /.stock-container -->
 
 								<div class="description-container m-t-20">
-									{{ product.detail }}
+									{{ product.data.detail }}
 								</div><!-- /.description-container -->
 
 								<div class="price-container info-container m-t-20">
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="price-box">
-												<span class="price">₹ {{ product.price }}</span>
+												<span class="price">₹ {{ product.data.price }}</span>
 												<!--<span class="price-strike">₹{{ number_format(300000, 2) }}</span>-->
 											</div>
 										</div>
 										<div class="col-sm-6">
-											<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#" (click)="addProductWishlist($event, product.id)">
+											<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#" (click)="addProductWishlist($event, product.data.id)">
 											<i class="fa fa-heart"></i></a>
 										</div>
 									</div><!-- /.row -->
@@ -128,7 +128,7 @@
 							<div class="tab-content">
 								<div id="description" class="tab-pane in active">
 									<div class="product-tab">
-										<p class="text">{{ product.description }}</p>
+										<p class="text">{{ product.data.description }}</p>
 										<br>
 										<h3>Specfications</h3>
 										<table class="table">
@@ -152,8 +152,8 @@
 									<div class="product-tab">
 										<div class="product-reviews">
 											<h4 class="title">Customer Reviews</h4>
-											<div class="reviews" *ngIf="product.reviews.length > 0; else noReview">
-												<div class="review" *ngFor="let review of product.reviews">
+											<div class="reviews" *ngIf="product.data.reviews.length > 0; else noReview">
+												<div class="review" *ngFor="let review of product.data.reviews">
 												    <div class="revtest" style="padding-bottom: 25px;" >
 														<div class="review-title">
 															<span class="summary">{{ review.user}}</span><span class="date"><i class="fa fa-calendar"></i><span> {{ review.date | date }} </span></span>

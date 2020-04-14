@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { ProductDetailService } from 'src/app/product-detail.service';
-import { AuthService } from '../services/auth.service';
-import { WishlistService } from '../services/wishlist.service';
-import { NotificationService } from '../services/notification.service';
-import { CartService } from '../services/cart.service';
+import { ProductDetailService } from 'src/app/services/product-detail.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { CartService } from 'src/app/services/cart.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { WishlistService } from 'src/app/services/wishlist.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 
 @Component({
   selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
+  templateUrl: `product-detail.component.html`,
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
@@ -52,7 +52,7 @@ export class ProductDetailComponent implements OnInit {
   {
     this._productDetailService.getProductDetail(this.productId)
     .subscribe(data => {
-      this.product = data;
+      this.product = data
     })
   }
 
@@ -117,7 +117,7 @@ export class ProductDetailComponent implements OnInit {
 
     if(this.loggedIn == true)
     {
-      console.log(this.addToCartForm.value);
+      //console.log(this.addToCartForm.value);
       this.cart.addProductToCart(this.addToCartForm.value)
           .subscribe(
             data => this.notification.showSuccess(data.message, 'Success!'),
@@ -183,6 +183,7 @@ export class ProductDetailComponent implements OnInit {
     this.productDetail();
     this.postReviewForm.reset();
   }
+
   handleReviewError(error)
   {
     this.errorReview = error.error.errors;

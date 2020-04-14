@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { RegistrationService } from 'src/app/registration.service';
+import { RegistrationService } from 'src/app/services/registration.service';
 import { NotificationService } from 'src/app/services/notification.service';
 
 
@@ -44,7 +44,6 @@ export class RequestResetComponent implements OnInit {
 
   onSubmit()
   {
-    //console.log(this.registrationForm.value);
     this.reset.sendPasswordResetLink(this.requestResetForm.value)
         .subscribe(
           data => this.handleRequestEmailResponse(data),
@@ -61,9 +60,7 @@ export class RequestResetComponent implements OnInit {
 
   handleRequestEmailError(error)
   {
-    //this.error = error.error.error;
-    console.log(error);
-    this.notification.showError(error.error, "Error!");
+    this.error = error.error;
   }
 
 

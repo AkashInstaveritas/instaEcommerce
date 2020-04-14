@@ -9,13 +9,14 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class CartComponent implements OnInit {
 
+  public carts: any = [];
+
   constructor
   (
     private _cart: CartService,
     private notification: NotificationService
   ) { }
 
-  public carts: any = [];
 
   ngOnInit(): void {
     this.getCart();
@@ -25,20 +26,6 @@ export class CartComponent implements OnInit {
   {
     this._cart.getCart()
     .subscribe(data => this.carts = data);
-
-    var accounts = [
-      { name: 'James Brown', msgCount: 123 },
-      { name: 'Stevie Wonder', msgCount: 22 },
-      { name: 'Sly Stone', msgCount: 16 },
-      { name: 'Otis Redding', msgCount: 300 }  // Otis has the most messages
-    ];
-
-    // get sum of msgCount prop across all objects in array
-    var msgTotal = this.carts.reduce(function(prev, cur) {
-      return prev + cur.msgCount;
-    }, 0);
-
-    console.log('Total Messages:', msgTotal); // Total Messages: 461
   }
 
   changeQuantity(quantity: string, id): void {
