@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AddressService } from 'src/app/services/address.service';
-import { NotificationService } from 'src/app/services/notification.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { NotificationService } from 'src/app/core/services/notification.service';
+import { AddressService } from '../services/address.service';
 
 
 @Component({
@@ -214,7 +214,6 @@ export class AddressesComponent implements OnInit {
 
    onUpdateSubmit()
    {
-      console.log(this.editAddressForm.value.id);
      this.address.updateUserAddress(this.editAddressForm.value, this.editAddressForm.value.id)
          .subscribe(
            data => this.handleUpdateAddressResponse(data),

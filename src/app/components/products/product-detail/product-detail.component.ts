@@ -4,8 +4,8 @@ import { ProductDetailService } from 'src/app/services/product-detail.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CartService } from 'src/app/services/cart.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { WishlistService } from 'src/app/services/wishlist.service';
-import { NotificationService } from 'src/app/services/notification.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
+import { WishlistService } from 'src/app/wishlist/services/wishlist.service';
 
 
 @Component({

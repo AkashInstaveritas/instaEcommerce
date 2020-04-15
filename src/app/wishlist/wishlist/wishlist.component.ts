@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WishlistService } from 'src/app/services/wishlist.service';
-import { NotificationService } from 'src/app/services/notification.service';
-
+import { NotificationService } from 'src/app/core/services/notification.service';
+import { WishlistService } from '../services/wishlist.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -40,5 +39,6 @@ export class WishlistComponent implements OnInit {
       this.getWishlist()
     });
   }
+
 
 }

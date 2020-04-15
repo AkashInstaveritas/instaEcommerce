@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDetailService } from 'src/app/services/product-detail.service';
-import { WishlistService } from 'src/app/services/wishlist.service';
-import { NotificationService } from 'src/app/services/notification.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { LandingService } from '../services/landing.service';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +16,7 @@ export class HomeComponent implements OnInit {
 
   constructor
   (
-    private products: ProductDetailService,
-    private Wishlist: WishlistService,
+    private products: LandingService,
     private notification: NotificationService,
     private Auth: AuthService,
   ) { }
@@ -47,7 +45,7 @@ export class HomeComponent implements OnInit {
 
     if(this.loggedIn == true)
     {
-      this.Wishlist.addProductToWishlist(id)
+      this.products.addFeaturedProductToWishlist(id)
       .subscribe(
         data => this.notification.showSuccess('Product added to wishlist!', 'Success!'),
         error => this.handleWishlistError(error),

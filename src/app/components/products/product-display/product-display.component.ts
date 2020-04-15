@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { WishlistService } from 'src/app/services/wishlist.service';
-import { NotificationService } from 'src/app/services/notification.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
 import { FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
+import { WishlistService } from 'src/app/wishlist/services/wishlist.service';
 
 @Component({
   selector: 'app-product-display',
