@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { OrderService } from 'src/app/services/order.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
+import { OrderService } from '../services/order.service';
 
 
 @Component({

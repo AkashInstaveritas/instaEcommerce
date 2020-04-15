@@ -12,13 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { CartComponent } from './components/cart/cart.component';
-import { ProductDisplayComponent } from './components/products/product-display/product-display.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ShopModule } from './shop/shop.module';
 
 
 
@@ -26,10 +24,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
   declarations: [
     AppComponent,
     RegistrationComponent,
-    ProductDetailComponent,
     UserProfileComponent,
-    CartComponent,
-    ProductDisplayComponent,
     RequestResetComponent,
     ResponseResetComponent,
     CheckoutComponent,
@@ -50,6 +45,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
       preventDuplicates: true,
     }),
     CoreModule,
+    ShopModule
   ],
   providers: [],
   bootstrap: [AppComponent]

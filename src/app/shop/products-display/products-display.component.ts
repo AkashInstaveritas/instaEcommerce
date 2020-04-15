@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { ProductsService } from 'src/app/services/products.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { NotificationService } from 'src/app/core/services/notification.service';
-import { FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 import { WishlistService } from 'src/app/wishlist/services/wishlist.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
+import { FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { ProductsService } from '../services/products.service';
 
 @Component({
-  selector: 'app-product-display',
-  templateUrl: `product-display.component.html`,
-  styleUrls: ['./product-display.component.css']
+  selector: 'app-products-display',
+  templateUrl: './products-display.component.html',
+  styleUrls: ['./products-display.component.css']
 })
-export class ProductDisplayComponent implements OnInit {
+export class ProductsDisplayComponent implements OnInit {
 
   public subCategoryId: any;
   public products: any = [];
@@ -143,5 +143,4 @@ export class ProductDisplayComponent implements OnInit {
   /**
    * End of code for filtering products with use of filteroptions and brands
    */
-
 }

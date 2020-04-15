@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoriesService } from 'src/app/services/categories.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
-import { SubCategoriesService } from 'src/app/services/sub-categories.service';
+import { CategoriesService } from '../../services/categories.service';
 
 
 
@@ -25,7 +24,6 @@ export class MainNavComponent implements OnInit {
     private Auth: AuthService,
     private router: Router,
     private Token: TokenService,
-    private _subCategories: SubCategoriesService,
   ) { }
 
   ngOnInit(): void {
@@ -50,7 +48,7 @@ export class MainNavComponent implements OnInit {
     event.preventDefault();
     this.touchedSubcategory = true;
 
-    this._subCategories.getSubCategories(id)
+    this._catogeriesService.getSubCategories(id)
     .subscribe(data => this.mainCategories = data);
 
   }
@@ -58,9 +56,7 @@ export class MainNavComponent implements OnInit {
   getProducts(event: MouseEvent, id)
   {
     event.preventDefault();
-
-
-    this.router.navigate(['/products/' + id]);
+    this.router.navigate(['/shop/' + id]);
   }
 
   subDataDisappear(event: MouseEvent)

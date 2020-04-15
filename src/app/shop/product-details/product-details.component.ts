@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { ProductDetailService } from 'src/app/services/product-detail.service';
-import { FormBuilder, Validators } from '@angular/forms';
-import { CartService } from 'src/app/services/cart.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { NotificationService } from 'src/app/core/services/notification.service';
 import { WishlistService } from 'src/app/wishlist/services/wishlist.service';
-
+import { CartService } from 'src/app/services/cart.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ProductDetailService } from '../services/product-detail.service';
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: `product-detail.component.html`,
-  styleUrls: ['./product-detail.component.css']
+  selector: 'app-product-details',
+  templateUrl: './product-details.component.html',
+  styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit {
 
   public productId: any;
   public product: any;
@@ -194,8 +193,6 @@ export class ProductDetailComponent implements OnInit {
     }
 
   }
-
-
 
 
 }
