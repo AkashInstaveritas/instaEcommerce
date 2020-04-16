@@ -3,8 +3,8 @@ import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { PasswordValidator } from 'src/app/shared/password.validator';
 import { RegistrationService } from 'src/app/services/registration.service';
 import { Router } from '@angular/router';
-import { TokenService } from 'src/app/services/token.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/core/services/token.service';
 
 @Component({
   selector: 'app-registration',

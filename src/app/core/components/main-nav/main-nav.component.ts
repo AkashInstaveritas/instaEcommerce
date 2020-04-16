@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { TokenService } from 'src/app/services/token.service';
 import { CategoriesService } from '../../services/categories.service';
+import { TokenService } from '../../services/token.service';
 
 
 

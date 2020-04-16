@@ -15,7 +15,6 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ShopModule } from './shop/shop.module';
 
 
@@ -27,7 +26,6 @@ import { ShopModule } from './shop/shop.module';
     UserProfileComponent,
     RequestResetComponent,
     ResponseResetComponent,
-    CheckoutComponent,
 
   ],
   imports: [
