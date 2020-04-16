@@ -1,0 +1,132 @@
+.modal.show
+{
+  display: block;
+}
+
+/*===================================================================================*/
+/*  Wishlist
+/*===================================================================================*/
+
+.my-wishlist-page {
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
+  padding: 20px;
+  overflow: hidden;
+}
+
+.heading-title {
+text-align: left!important;
+  text-transform: none!important;
+  padding: 0px 0px 15px 0px!important;
+  font-weight: bold!important;
+  font-size: 22px!important;
+  border-bottom: 1px #e5e5e5 solid!important;}
+
+.body-content .my-wishlist-page .my-wishlist table > thead > tr > th {
+text-align: center;
+font-size: 30px;
+font-family: 'Open Sans', sans-serif;
+text-transform: uppercase;
+border: none;
+font-weight: 400;
+}
+
+.body-content .my-wishlist-page img {width:100%}
+.body-content .my-wishlist-page .my-wishlist table tbody tr:nth-child(even) {
+border-top: 1px solid #ddd;
+}
+.body-content .my-wishlist-page .my-wishlist table tbody .product-name {
+font-size: 16px;
+font-family: 'Open Sans', sans-serif;
+padding-bottom: 6px;
+}
+.body-content .my-wishlist-page .my-wishlist table tbody .product-name a {
+color: #434343;
+}
+.body-content .my-wishlist-page .my-wishlist table tbody .rating span {
+font-size: 11px;
+color: #aaa;
+padding-left: 10px;
+}
+.body-content .my-wishlist-page .my-wishlist table tbody .rating .rate {
+color: #ffb400;
+}
+.body-content .my-wishlist-page .my-wishlist table tbody .rating .non-rate {
+color: #dcdcdc;
+}
+.body-content .my-wishlist-page .my-wishlist table tbody .price {
+font-size: 16px;
+padding-top: 4px;
+font-weight: bold;
+}
+.body-content .my-wishlist-page .my-wishlist table tbody .price span {
+font-size: 15px;
+color: #ddd;
+text-decoration: line-through;
+padding-left: 10px;
+}
+.body-content .my-wishlist-page .my-wishlist table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+vertical-align: middle;
+border: none;
+padding: 30px;
+}
+.body-content .my-wishlist-page .my-wishlist table tbody .close-btn a,
+.body-content .my-wishlist-page .my-wishlist table tbody .close-btn a:hover {
+color: #ff7878;
+font-size: 15px;
+}
+
+/*===================================================================================*/
+/*  Breadcrumb
+/*===================================================================================*/
+.breadcrumb {
+  background: rgba(0, 0, 0, 0);
+  padding: 0;
+}
+.breadcrumb ul {
+ display: inline;
+  margin: auto;
+  padding:8px 0 0px;
+  text-align: left;
+}
+.breadcrumb ul li:after {
+  display: inline;
+  color: #666666;
+  content: "/";
+  font-family: 'Open Sans', sans-serif, sans-serif;
+  font-size: 12px;
+  line-height: 24px;
+  margin.bread-left: 9px;
+  margin-right: -4px;
+  padding: 0px;
+}
+.breadcrumb ul li:last-child:after {
+  display: inline;
+  content: "";
+}
+.breadcrumb ul li a {
+  display: inline;
+  color: #666666;
+  font-family: 'Open Sans', sans-serif, sans-serif;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.breadcrumb li {
+  display: inline;
+  padding-left: 7px;
+}
+.breadcrumb ul li.active {
+  color: #0b816a;
+}
+.breadcrumb ul a:hover,
+.breadcrumb ul a:focus {
+  color: #0b816a;
+}
+
+

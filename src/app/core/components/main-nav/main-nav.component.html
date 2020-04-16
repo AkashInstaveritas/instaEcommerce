@@ -12,7 +12,7 @@
             <li *ngIf="!loggedIn"><a routerLink="/logIn" *ngIf="!loggedIn"><i class="fa fa-sign-in"></i>Login</a></li>
             <li *ngIf="loggedIn"><a href="#" (click)="logout($event)" *ngIf="loggedIn"><i class="fa fa-sign-out"></i>Logout</a></li>
             <li *ngIf="loggedIn"><a routerLink="/my-profile" *ngIf="loggedIn"><i class="fa fa-user-circle"></i>My Profile</a></li>
-            <li *ngIf="loggedIn"><a routerLink="/my-addresses" *ngIf="loggedIn"><i class="fa fa-address-book-o"></i>My Addresses</a></li>
+            <li *ngIf="loggedIn"><a routerLink="/addresses" *ngIf="loggedIn"><i class="fa fa-address-book-o"></i>My Addresses</a></li>
             <li *ngIf="loggedIn"><a routerLink="/checkout" *ngIf="loggedIn"><i class="icon fa fa-check"></i>Checkout</a></li>
             <li *ngIf="loggedIn"><a routerLink="/orders" *ngIf="loggedIn"><i class="fa fa-archive"></i>My Orders</a></li>
           </ul>

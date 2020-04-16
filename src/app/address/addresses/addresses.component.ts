@@ -3,12 +3,13 @@ import { AddressService } from 'src/app/services/address.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { FormBuilder, Validators } from '@angular/forms';
 
+
 @Component({
-  selector: 'app-user-address',
-  templateUrl: './user-address.component.html',
-  styleUrls: ['./user-address.component.css']
+  selector: 'app-addresses',
+  templateUrl: './addresses.component.html',
+  styleUrls: ['./addresses.component.css']
 })
-export class UserAddressComponent implements OnInit {
+export class AddressesComponent implements OnInit {
 
   public addresses: any = [];
 
@@ -37,7 +38,6 @@ export class UserAddressComponent implements OnInit {
    *
    **/
   showModal : boolean = false;
-  showRemoveModal : boolean = false;
 
    // Create gettters for registation controls
   get name()

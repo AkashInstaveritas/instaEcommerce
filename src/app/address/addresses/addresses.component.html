@@ -47,7 +47,6 @@
                     <td class="col-md-2 close-btn">
                       <a href="#" (click)="editAddress($event, address.id)" class=""><i class="fa fa-edit"></i></a>
                       <a href="#" (click)="removeAddress($event, address.id)" class=""><i class="fa fa-times"></i></a>
-                      <button data-toggle="modal" data-target="#myRemoveModal" (click)="showRemoveModal=true"><i class="fa fa-times"></i></button>
                     </td>
                   </tr>
 
@@ -251,30 +250,5 @@
 </div>
  <!-- Edit Address Modal Ends -->
 
- <!-- Delete Address Modal -->
- <div id="myRemoveModal" class="modal fade" role="dialog" [ngClass]="{'show': showRemoveModal}">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Remove Address</h4>
-        <button type="button" class="close" data-dismiss="modal" (click)="showRemoveModal=false">&times;</button>
-      </div>
 
-      <div class="modal-body">
-        <p>Are you sure you want to remove this address?</p>
-        <div class="clearfix">
-          <button type="button" class="btn-upper btn btn-default" data-dismiss="modal" (click)="showRemoveModal=false">No</button>
-          <button type="button" class="btn-upper btn btn-primary">Yes</button>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn-upper btn btn-primary" data-dismiss="modal" (click)="showRemoveModal=false">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
- <!-- Delete Address Modal Ends -->

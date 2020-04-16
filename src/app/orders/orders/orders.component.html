@@ -18,7 +18,7 @@
           <div *ngFor="let order of orders.data">
             <div style="background-color:#ebebe0; padding: 12px 10px 12px 10px; ">
               <span style="display: inline-block; width: 50%">
-                <a routerLink="/order-detail/{{order.id}}" class="btn btn-upper btn-primary outer-left-xs">Order Total - {{ order.total | currency: 'INR' }}</a>
+                <a routerLink="/orders/order-detail/{{order.id}}" class="btn btn-upper btn-primary outer-left-xs">Order Total - {{ order.total | currency: 'INR' }}</a>
               </span>
 
               <span style="font-size: 15px; float: right;" *ngIf="order.status == 0; else orderCancelled">
@@ -83,5 +83,6 @@
     </div><!-- /.my-wishlist-page-->
   </div><!--Container-->
 </div><!--Body-Content-->
+
 
 
