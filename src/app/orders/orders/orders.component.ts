@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from 'src/app/services/order.service';
-import { NotificationService } from 'src/app/services/notification.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
+import { OrderService } from '../services/order.service';
+
 
 @Component({
   selector: 'app-orders',

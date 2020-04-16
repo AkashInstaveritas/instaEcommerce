@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { AddressService } from 'src/app/services/address.service';
 import { CartService } from 'src/app/services/cart.service';
-import { OrderService } from 'src/app/services/order.service';
-import { NotificationService } from 'src/app/services/notification.service';
+import { NotificationService } from 'src/app/core/services/notification.service';
+import { AddressService } from 'src/app/address/services/address.service';
+import { OrderService } from 'src/app/orders/services/order.service';
+
 
 
 @Component({
