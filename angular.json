@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "insta-ecommerce"
+    }
+  },
+  "defaultProject": "insta-ecommerce",
+  "cli": {
+    "analytics": false
+  }
 }

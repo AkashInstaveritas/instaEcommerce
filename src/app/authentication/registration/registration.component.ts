@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
-import { PasswordValidator } from 'src/app/shared/password.validator';
+import { FormBuilder, Validators } from '@angular/forms';
 import { RegistrationService } from 'src/app/services/registration.service';
+import { TokenService } from 'src/app/core/services/token.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { TokenService } from 'src/app/core/services/token.service';
+import { PasswordValidator } from 'src/app/shared/password.validator';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-registration',
@@ -16,7 +17,7 @@ export class RegistrationComponent implements OnInit {
   constructor
   (
     private fb: FormBuilder,
-    private _registrationService: RegistrationService,
+    private _registrationService: AuthenticationService,
     private Token: TokenService,
     private router: Router,
     private Auth: AuthService
@@ -139,4 +140,3 @@ export class RegistrationComponent implements OnInit {
 
 
 }
-

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { RegistrationService } from 'src/app/services/registration.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
-
-
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-request-reset',
@@ -15,7 +13,7 @@ export class RequestResetComponent implements OnInit {
   constructor
   (
     private fb: FormBuilder,
-    private reset: RegistrationService,
+    private reset:AuthenticationService,
     private notification: NotificationService
   ) { }
 

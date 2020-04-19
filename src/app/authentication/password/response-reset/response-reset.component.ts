@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { RegistrationService } from 'src/app/services/registration.service';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { PasswordValidator } from 'src/app/shared/password.validator';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-response-reset',
@@ -15,7 +15,7 @@ export class ResponseResetComponent implements OnInit {
   constructor
   (
     private fb: FormBuilder,
-    private reset: RegistrationService,
+    private reset: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router,
     private notification: NotificationService

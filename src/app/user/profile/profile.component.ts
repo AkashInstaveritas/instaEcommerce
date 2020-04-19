@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { RegistrationService } from 'src/app/services/registration.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
+import { UserService } from '../services/user.service';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
   public userData: any = [];
   public error: any = [];
@@ -16,7 +16,7 @@ export class UserProfileComponent implements OnInit {
   constructor
   (
     private fb: FormBuilder,
-    private profile: RegistrationService,
+    private profile: UserService,
     private notification: NotificationService
   ) { }
 
@@ -73,5 +73,6 @@ export class UserProfileComponent implements OnInit {
   {
     this.error = error.error.errors;
   }
+
 
 }
